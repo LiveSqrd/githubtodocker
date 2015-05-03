@@ -14,11 +14,10 @@ var express = require('express')
 var everyauth = require('everyauth')
   ,session = require('express-session');
 
-everyauth.github
+  everyauth.github
   .appId('b9fcf09cf94effdff42a')
   .appSecret('10303d48dbd0427179196bbb10c575d4e3e75b99')
   .findOrCreateUser( function (session, accessToken, accessTokenExtra, githubUserMetadata) {
-    console.log({"_id":0,session:session,accessToken:accessToken,accessTokenExtra:accessTokenExtra, githubUserMetadata:githubUserMetadata})
     return {"_id":0,session:session,accessToken:accessToken,accessTokenExtra:accessTokenExtra, githubUserMetadata:githubUserMetadata}
   })
   .scope("user,user:email,repo")

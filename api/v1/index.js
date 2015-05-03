@@ -34,7 +34,7 @@ api.get('/repos',function(req,res){
 		var arr =[];
 		var listRepos = function (){
 			github.repos.getAll({"per_page":100}, function(err, resp) {
-				arr = _.union(arr,_.pluck(resp,"full_name"));
+				arr = _.union(arr,resp);
 				res.send({err:err, result:arr})
 			});
 		}
@@ -46,7 +46,7 @@ api.get('/repos',function(req,res){
 				if(t && _.findWhere(t,{"permission": "admin"}))
 					github.orgs.getTeamRepos({id:_.findWhere(t,{"permission": "admin"}).id,"per_page":100}, function(err, repos) {
 						counter++;
-						arr = _.union(arr,_.pluck(repos,"full_name"))
+						arr = _.union(arr,repos)
 						if(counter ==  orgs.length)
 							listRepos();
 					});
