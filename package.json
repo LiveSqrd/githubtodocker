@@ -1,0 +1,38 @@
+{
+  "name": "container-factory",
+  "version": "1.0.0",
+  "description": "container-factory API client",
+  "main": "app.js",
+  "bin": "cli.js",
+  "dependencies": {
+    "body-parser": "^1.12.0",
+    "debug": "^2.1.2",
+    "everyauth": "^0.4.9",
+    "express": "^4.12.2",
+    "express-session": "^1.11.1",
+    "hyperdirect": "0.0.0",
+    "hyperquest": "^1.2.0",
+    "lsq": "0.0.3",
+    "marked": "^0.0.3",
+    "method-override": "^2.3.1",
+    "morgan": "^1.5.1",
+    "on-finished": "^2.2.0",
+    "promise": "^6.1.0",
+    "request": "^2.53.0",
+    "tar": "^2.1.0",
+    "tar-stream": "^1.1.4",
+    "toobusy-js": "^0.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "docker",
+    "build"
+  ],
+  "author": "Nathan Zadoks",
+  "license": "ISC",
+  "watch": "api/v1/*"
+}
