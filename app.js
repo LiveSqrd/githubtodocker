@@ -21,6 +21,7 @@ everyauth.github
     console.log({"_id":0,session:session,accessToken:accessToken,accessTokenExtra:accessTokenExtra, githubUserMetadata:githubUserMetadata})
     return {"_id":0,session:session,accessToken:accessToken,accessTokenExtra:accessTokenExtra, githubUserMetadata:githubUserMetadata}
   })
+  .scope("user,user:email,repo")
   .redirectPath('/#repo')
 
   app

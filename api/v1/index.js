@@ -9,15 +9,55 @@ var express = require('express')
   , zlib = require('zlib')
   , Tar = require('tar-stream')
   , EventEmitter = require('events').EventEmitter
-
-
-
-  var fs = require("fs")
-  var path = require("path")
+  , GitHubApi = require("github")
+  , github    = new GitHubApi({version: "3.0.0"})
+  , _ = require('underscore')
 
 // lsq.config.get().then(function(c){
 //   config = c
 // })
+
+api.get('/repos',function(req,res){
+	var gitLogin = (req.session && req.session.auth && req.session.auth.github) ? req.session.auth.github : null 
+
+	if(!_.isObject(gitLogin))
+		return res.send({"err":"doesnt have github login"})
+
+	github.authenticate({
+		type: "oauth",
+		token: gitLogin.accessToken
+	})
+
+	github.user.getOrgs({"per_page":100}, function(errO, orgs) {
+		var counter = 0;
+		var arr =[];
+		var listRepos = function (){
+			github.repos.getAll({"per_page":100}, function(err, resp) {
+				arr = _.union(arr,_.pluck(resp,"full_name"));
+				res.send({err:err, result:arr})
+			});
+		}
+		if(orgs.length == counter)
+			return listRepos();
+
+		_.each(orgs,function(v){
+			github.orgs.getTeams({org:v.login,"per_page":100}, function(errT, t) {
+				if(t && _.findWhere(t,{"permission": "admin"}))
+					github.orgs.getTeamRepos({id:_.findWhere(t,{"permission": "admin"}).id,"per_page":100}, function(err, repos) {
+						counter++;
+						arr = _.union(arr,_.pluck(repos,"full_name"))
+						if(counter ==  orgs.length)
+							listRepos();
+					});
+				else
+					counter++;
+
+				if(counter == orgs.length)
+					listRepos();
+			});
+		})
+	})
+})
 
 api.post('/build',function(req,res){
   var email = req.body.email

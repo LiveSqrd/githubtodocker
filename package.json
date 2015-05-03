@@ -10,6 +10,7 @@
     "everyauth": "^0.4.9",
     "express": "^4.12.2",
     "express-session": "^1.11.1",
+    "github": "^0.2.4",
     "hyperdirect": "0.0.0",
     "hyperquest": "^1.2.0",
     "lsq": "0.0.3",
@@ -21,7 +22,8 @@
     "request": "^2.53.0",
     "tar": "^2.1.0",
     "tar-stream": "^1.1.4",
-    "toobusy-js": "^0.4.1"
+    "toobusy-js": "^0.4.1",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {},
   "scripts": {
