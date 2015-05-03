@@ -107,7 +107,7 @@ api.post('/build',function(req,res){
 	  pack.finalize()
 	})
 
-   	var service = "container-factory.onlsq.io"
+   	var service = "factory-cc08ef42-1.lsqio.cont.tutum.io:49192"
 		hyperdirect(tar)
 		.pipe(zlib.createGunzip())
 		.pipe(extract)
