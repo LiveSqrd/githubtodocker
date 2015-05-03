@@ -361,6 +361,7 @@ var Repo = React.createClass({
 		      if(error){
 		      	
 		      } else{
+		      	console.log(res.body)
 		      	that.setState({ repos: res.body.result})
 		      }
 
@@ -368,9 +369,9 @@ var Repo = React.createClass({
 		}
 	},
 	componentWillUnmount: function () {},
-	createRepoNodes: function (that) {	
-
-		var nodes = that.state.repos.map(function (repos) {
+	createRepoNodes: function () {	
+		console.log("sad",this.state.repos)
+		var nodes = this.state.repos.map(function (repos) {
 			var url = "/#/repo/"+repos.id;
 			return (				
 				React.createElement("a", {href: url, className: "singleRepo", key: repos.id}, 
@@ -386,7 +387,7 @@ var Repo = React.createClass({
 		return nodes;
 	},
 	render: function () {		
-		var listRepos = this.createRepoNodes(this)
+		var listRepos = this.createRepoNodes().bind(this)
 		return (
 			React.createElement("div", {className: "repo"}, 
 				React.createElement("div", {className: "hero"}, 
