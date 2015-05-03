@@ -17,6 +17,20 @@ var express = require('express')
 // lsq.config.get().then(function(c){
 //   config = c
 // })
+api.get('/tar/:user/:repo/:branch',function(req,res){
+	var gitLogin = (req.session && req.session.auth && req.session.auth.github) ? req.session.auth.github : null 
+
+	if(!_.isObject(gitLogin))
+		return res.send({"err":"doesnt have github login"})
+
+	github.authenticate({
+		type: "oauth",
+		token: gitLogin.accessToken
+	})
+	github.repos.getArchiveLink({user:req.params.user,repo:req.params.repo,archive_format:"tarball",ref:req.params.branch},function(err, resp) {
+		res.send({err:err,result:resp.meta.location})
+	})
+})
 
 api.get('/repos',function(req,res){
 	var gitLogin = (req.session && req.session.auth && req.session.auth.github) ? req.session.auth.github : null 
@@ -35,6 +49,7 @@ api.get('/repos',function(req,res){
 		var listRepos = function (){
 			github.repos.getAll({"per_page":100}, function(err, resp) {
 				arr = _.union(arr,resp);
+
 				res.send({err:err, result:arr})
 			});
 		}
@@ -69,7 +84,7 @@ api.post('/build',function(req,res){
   	, image = req.body.image
 	, config = {}
 	, writer
-
+	console.log(req.body.tar)
 	config[serverAddress] = {
         email: email,
         username: username,
@@ -92,7 +107,7 @@ api.post('/build',function(req,res){
 	  pack.finalize()
 	})
 
-   	var service = "factory-cc08ef42-1.lsqio.cont.tutum.io:49192"
+   	var service = "container-factory.onlsq.io"
 		hyperdirect(tar)
 		.pipe(zlib.createGunzip())
 		.pipe(extract)
