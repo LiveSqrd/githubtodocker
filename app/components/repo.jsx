@@ -38,11 +38,11 @@ var Repo = React.createClass({
 	createRepoNodes: function (repos) {	
 		console.log("sad",repos)
 		var nodes = repos.map(function (repos) {
-			var url = "/#/repo/"+repos.id;
+			var url = "/#/repo/"+repos.full_name;
 			return (				
 				<a href={url} className="singleRepo" key={repos.id}>
-					<span className="long">{repos.name}</span>
-					<span className="short">{repos.private}</span>
+					<span className="long">{repos.full_name}</span>
+					<span className="short">{repos.private ? "x": null}</span>
 					<span className="long">{repos.description}</span>
 					<span className="short">
 						<a href={repos.html_url} target="_blank"> &gt; </a>

@@ -373,11 +373,11 @@ var Repo = React.createClass({
 	createRepoNodes: function (repos) {	
 		console.log("sad",repos)
 		var nodes = repos.map(function (repos) {
-			var url = "/#/repo/"+repos.id;
+			var url = "/#/repo/"+repos.full_name;
 			return (				
 				React.createElement("a", {href: url, className: "singleRepo", key: repos.id}, 
-					React.createElement("span", {className: "long"}, repos.name), 
-					React.createElement("span", {className: "short"}, repos.private), 
+					React.createElement("span", {className: "long"}, repos.full_name), 
+					React.createElement("span", {className: "short"}, repos.private ? "x": null), 
 					React.createElement("span", {className: "long"}, repos.description), 
 					React.createElement("span", {className: "short"}, 
 						React.createElement("a", {href: repos.html_url, target: "_blank"}, " > ")
