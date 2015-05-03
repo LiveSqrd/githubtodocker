@@ -1,15 +1,19 @@
 var React = require("react")
 var Router = require("react-router")
 var request = require("superagent")
+var State = require('react-router').State
+var Navigation = require('react-router').Navigation
 var RouteHandler = Router.RouteHandler
 var Link = Router.Link
 
 var Single = React.createClass({
   displayName: "Single",
   propTypes: {},
-  mixins: [],
+    mixins: [State, Navigation],
 
-  getInitialState: function () { return {
+  getInitialState: function () {
+    console.log(this.getParams().repo)
+   return {
      email:""
     ,username:""
     ,password:""
@@ -38,7 +42,7 @@ var Single = React.createClass({
     .post("/api/v1/build",this.state)
     .set("Accept", "application/json")
     .end(function (error, res) {      
-      that.setState({message:res.xhr.reponse})        
+      that.setState({message:res.text})        
     })
   },
 

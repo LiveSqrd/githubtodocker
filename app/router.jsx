@@ -20,7 +20,8 @@ var routes = (
 	<Route handler={App} path="/">
 		<DefaultRoute name="app" handler={Home} />
 		<Route name="repo" path="repo" handler={Repo} />
-		<Route name="single" path="repo/:id" handler={Single} />
+		<Route name="single" path="repo/:repo" handler={Single} />
+		<Route name="singles" path="repo/:user/:repo" handler={Single} />
 
 		<Route name="about" path="about" handler={About} />
 		<Route name="pricing" path="pricing" handler={Pricing} />
