@@ -443,117 +443,22 @@ var Repo = React.createClass({
 		return { repos: [repo]} 
 	},
 	componentWillMount: function () {
-		// var that = this
-		// var repo = {
-		// 	id: 12532516,
-		// 	name: "bitstoberlin",
-		// 	full_name: "gagarigs/bitstoberlin",
-		// 	owner: {
-		// 	login: "gagarigs",
-		// 	id: 6877651,
-		// 	avatar_url: "https://avatars.githubusercontent.com/u/6877651?v=3",
-		// 	gravatar_id: "",
-		// 	url: "https://api.github.com/users/gagarigs",
-		// 	html_url: "https://github.com/gagarigs",
-		// 	followers_url: "https://api.github.com/users/gagarigs/followers",
-		// 	following_url: "https://api.github.com/users/gagarigs/following{/other_user}",
-		// 	gists_url: "https://api.github.com/users/gagarigs/gists{/gist_id}",
-		// 	starred_url: "https://api.github.com/users/gagarigs/starred{/owner}{/repo}",
-		// 	subscriptions_url: "https://api.github.com/users/gagarigs/subscriptions",
-		// 	organizations_url: "https://api.github.com/users/gagarigs/orgs",
-		// 	repos_url: "https://api.github.com/users/gagarigs/repos",
-		// 	events_url: "https://api.github.com/users/gagarigs/events{/privacy}",
-		// 	received_events_url: "https://api.github.com/users/gagarigs/received_events",
-		// 	type: "Organization",
-		// 	site_admin: false
-		// 	},
-		// 	private: false,
-		// 	html_url: "https://github.com/gagarigs/bitstoberlin",
-		// 	description: "Bits To Berlin Project",
-		// 	fork: false,
-		// 	url: "https://api.github.com/repos/gagarigs/bitstoberlin",
-		// 	forks_url: "https://api.github.com/repos/gagarigs/bitstoberlin/forks",
-		// 	keys_url: "https://api.github.com/repos/gagarigs/bitstoberlin/keys{/key_id}",
-		// 	collaborators_url: "https://api.github.com/repos/gagarigs/bitstoberlin/collaborators{/collaborator}",
-		// 	teams_url: "https://api.github.com/repos/gagarigs/bitstoberlin/teams",
-		// 	hooks_url: "https://api.github.com/repos/gagarigs/bitstoberlin/hooks",
-		// 	issue_events_url: "https://api.github.com/repos/gagarigs/bitstoberlin/issues/events{/number}",
-		// 	events_url: "https://api.github.com/repos/gagarigs/bitstoberlin/events",
-		// 	assignees_url: "https://api.github.com/repos/gagarigs/bitstoberlin/assignees{/user}",
-		// 	branches_url: "https://api.github.com/repos/gagarigs/bitstoberlin/branches{/branch}",
-		// 	tags_url: "https://api.github.com/repos/gagarigs/bitstoberlin/tags",
-		// 	blobs_url: "https://api.github.com/repos/gagarigs/bitstoberlin/git/blobs{/sha}",
-		// 	git_tags_url: "https://api.github.com/repos/gagarigs/bitstoberlin/git/tags{/sha}",
-		// 	git_refs_url: "https://api.github.com/repos/gagarigs/bitstoberlin/git/refs{/sha}",
-		// 	trees_url: "https://api.github.com/repos/gagarigs/bitstoberlin/git/trees{/sha}",
-		// 	statuses_url: "https://api.github.com/repos/gagarigs/bitstoberlin/statuses/{sha}",
-		// 	languages_url: "https://api.github.com/repos/gagarigs/bitstoberlin/languages",
-		// 	stargazers_url: "https://api.github.com/repos/gagarigs/bitstoberlin/stargazers",
-		// 	contributors_url: "https://api.github.com/repos/gagarigs/bitstoberlin/contributors",
-		// 	subscribers_url: "https://api.github.com/repos/gagarigs/bitstoberlin/subscribers",
-		// 	subscription_url: "https://api.github.com/repos/gagarigs/bitstoberlin/subscription",
-		// 	commits_url: "https://api.github.com/repos/gagarigs/bitstoberlin/commits{/sha}",
-		// 	git_commits_url: "https://api.github.com/repos/gagarigs/bitstoberlin/git/commits{/sha}",
-		// 	comments_url: "https://api.github.com/repos/gagarigs/bitstoberlin/comments{/number}",
-		// 	issue_comment_url: "https://api.github.com/repos/gagarigs/bitstoberlin/issues/comments{/number}",
-		// 	contents_url: "https://api.github.com/repos/gagarigs/bitstoberlin/contents/{+path}",
-		// 	compare_url: "https://api.github.com/repos/gagarigs/bitstoberlin/compare/{base}...{head}",
-		// 	merges_url: "https://api.github.com/repos/gagarigs/bitstoberlin/merges",
-		// 	archive_url: "https://api.github.com/repos/gagarigs/bitstoberlin/{archive_format}{/ref}",
-		// 	downloads_url: "https://api.github.com/repos/gagarigs/bitstoberlin/downloads",
-		// 	issues_url: "https://api.github.com/repos/gagarigs/bitstoberlin/issues{/number}",
-		// 	pulls_url: "https://api.github.com/repos/gagarigs/bitstoberlin/pulls{/number}",
-		// 	milestones_url: "https://api.github.com/repos/gagarigs/bitstoberlin/milestones{/number}",
-		// 	notifications_url: "https://api.github.com/repos/gagarigs/bitstoberlin/notifications{?since,all,participating}",
-		// 	labels_url: "https://api.github.com/repos/gagarigs/bitstoberlin/labels{/name}",
-		// 	releases_url: "https://api.github.com/repos/gagarigs/bitstoberlin/releases{/id}",
-		// 	created_at: "2013-09-02T05:15:22Z",
-		// 	updated_at: "2015-02-19T16:34:33Z",
-		// 	pushed_at: "2013-10-27T14:22:07Z",
-		// 	git_url: "git://github.com/gagarigs/bitstoberlin.git",
-		// 	ssh_url: "git@github.com:gagarigs/bitstoberlin.git",
-		// 	clone_url: "https://github.com/gagarigs/bitstoberlin.git",
-		// 	svn_url: "https://github.com/gagarigs/bitstoberlin",
-		// 	homepage: null,
-		// 	size: 121096,
-		// 	stargazers_count: 0,
-		// 	watchers_count: 0,
-		// 	language: "JavaScript",
-		// 	has_issues: true,
-		// 	has_downloads: true,
-		// 	has_wiki: true,
-		// 	has_pages: false,
-		// 	forks_count: 0,
-		// 	mirror_url: null,
-		// 	open_issues_count: 0,
-		// 	forks: 0,
-		// 	open_issues: 0,
-		// 	watchers: 0,
-		// 	default_branch: "master",
-		// 	permissions: {
-		// 	admin: true,
-		// 	push: true,
-		// 	pull: true}
-		// 	}
-		// that.setState({ repos: [repo]})
-		// console.log("weirte b", this.state.repos)
-		// var that = this
-		// request
-		//     .get("http://www.containerfactory.io/api/v1/repos")
-		//     .set("Accept", "application/json")
-		//     .end(function (error, res) {              
-		//       if(error){
+		if(this.isMounted()) {
+			request
+		    .get("/api/v1/repos")
+		    .set("Accept", "application/json")
+		    .end(function (error, res) {              
+		      if(error){
 		      	
-		//       } else{
-		//       	that.setState({ repos: res})
-		//       }
+		      } else{
+		      	that.setState({ repos: res.result})
+		      }
 
-		//     });
-		return null; 
+		    })
+		}
 	},
 	componentWillUnmount: function () {},
 	createRepoNodes: function (that) {	
-		console.log("read")
 
 		var nodes = that.state.repos.map(function (repos) {
 			var url = "/#/repo/"+repos.id;
@@ -605,6 +510,7 @@ module.exports = Repo;
 },{"react":205,"react-router":36,"superagent":206}],10:[function(require,module,exports){
 var React = require("react")
 var Router = require("react-router")
+var request = require("superagent")
 var RouteHandler = Router.RouteHandler
 var Link = Router.Link
 
@@ -613,11 +519,36 @@ var Single = React.createClass({
   propTypes: {},
   mixins: [],
 
-  getInitialState: function () { return null; },
+  getInitialState: function () { return {
+    email:""
+    ,username:""
+    ,password:""
+    ,serverAddress:""
+    ,tar:""
+    ,image:""
+    ,message:""
+  };
+  },
 
   componentWillMount: function () {},
 
   componentWillUnmount: function () {},
+
+  handleChange: function (name, e) {
+    var change = {}
+    change[name] = e.target.value;
+    this.setState(change)
+  }, 
+
+  sendto:function () {
+    var that = this;
+   request
+    .post("/api/v1/build",this.state)
+    .set("Accept", "application/json")
+    .end(function (error, res) {      
+      that.setState({message:res})        
+    })
+  },
 
   render: function () {
     return (
@@ -629,42 +560,46 @@ var Single = React.createClass({
         ), 
         React.createElement("div", {className: "more"}, 
         React.createElement("div", {className: "contentWrapper"}, 
-          React.createElement("form", {className: "createForm", action: "/api/v1/build"}, 
+          
           React.createElement("fieldset", null, 
           React.createElement("legend", null, "Registry Details"), 
           
           React.createElement("div", null, 
             React.createElement("label", {for: "email"}, "Email:"), 
-            React.createElement("input", {name: "email", type: "email", placeholder: "ex: bob@bobbyland.com", required: true, autofocus: true})
+            React.createElement("input", {name: "email", type: "email", value: this.state.email, onChange: this.handleChange.bind(this, 'email'), placeholder: "ex: bob@bobbyland.com", required: true, autofocus: true})
           ), 
           React.createElement("div", null, 
             React.createElement("label", {for: "username"}, "Username:"), 
-            React.createElement("input", {name: "username", type: "text", placeholder: "ex: bob", required: true, autofocus: true})
+            React.createElement("input", {name: "username", type: "text", value: this.state.username, onChange: this.handleChange.bind(this, 'username'), placeholder: "ex: bob", required: true, autofocus: true})
           ), 
           React.createElement("div", null, 
             React.createElement("label", {for: "password"}, "Password:"), 
-            React.createElement("input", {name: "password", type: "password", placeholder: "6 digits, a combination of numbers and letters", required: true})
+            React.createElement("input", {name: "password", type: "password", value: this.state.password, onChange: this.handleChange.bind(this, 'password'), placeholder: "6 digits, a combination of numbers and letters", required: true})
           ), 
           React.createElement("div", null, 
             React.createElement("label", {for: "serverAddress"}, "Server Address:"), 
-            React.createElement("input", {name: "serverAddress", type: "text", placeholder: "ex: bob", required: true, autofocus: true})
+            React.createElement("input", {name: "serverAddress", type: "text", value: this.state.serverAddress, onChange: this.handleChange.bind(this, 'serverAddress'), placeholder: " ex: https://index.docker.io/v1/", required: true, autofocus: true})
           ), 
           React.createElement("div", null, 
             React.createElement("label", {for: "tar"}, "Repo Tar:"), 
-            React.createElement("input", {name: "tar", type: "text", placeholder: "", value: "", required: true, autofocus: true})
+            React.createElement("input", {name: "tar", type: "text", value: this.state.tar, onChange: this.handleChange.bind(this, 'tar'), placeholder: "ex: https://github.com/username/repo/archive/branch.tar.gz", required: true, autofocus: true})
           ), 
 
           React.createElement("div", null, 
 
             React.createElement("label", {for: "image"}, "Image:"), 
-            React.createElement("input", {name: "image", type: "text", placeholder: "scope/name", required: true})
+            React.createElement("input", {name: "image", value: this.state.image, onChange: this.handleChange.bind(this, 'image'), type: "text", placeholder: "scope/name", required: true})
           ), 
           React.createElement("div", null, 
-            React.createElement("input", {name: "create", type: "submit", value: "Create"})
+
+            React.createElement("button", {name: "create", onClick: this.sendto}, "Create"
+             )
           )
           )
-          )
-        )
+        ), 
+         this.state.message ? 
+          React.createElement("textarea", null, this.state.message)
+          : null
         ), 
         React.createElement(RouteHandler, null)
       )
@@ -682,7 +617,7 @@ module.exports = Single;
 
 
 
-},{"react":205,"react-router":36}],11:[function(require,module,exports){
+},{"react":205,"react-router":36,"superagent":206}],11:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
