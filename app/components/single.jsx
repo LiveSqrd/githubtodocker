@@ -56,7 +56,7 @@ var Single = React.createClass({
         <div className="more">
         <div className="contentWrapper">
          { this.state.building ?
-           <h2>building </h2>
+            <h2>{ this.state.message ? "Done" : "building"}</h2>
            :  
           <fieldset className="createForm">
           <legend>Registry Details</legend>

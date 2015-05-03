@@ -480,7 +480,7 @@ var Single = React.createClass({
         React.createElement("div", {className: "more"}, 
         React.createElement("div", {className: "contentWrapper"}, 
           this.state.building ?
-           React.createElement("h2", null, "building ")
+            React.createElement("h2", null,  this.state.message ? "Done" : "building")
            :  
           React.createElement("fieldset", {className: "createForm"}, 
           React.createElement("legend", null, "Registry Details"), 
