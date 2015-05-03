@@ -12,6 +12,7 @@ var express = require('express')
   , GitHubApi = require("github")
   , github    = new GitHubApi({version: "3.0.0"})
   , _ = require('underscore')
+  , path = require('path')
 
 // lsq.config.get().then(function(c){
 //   config = c
