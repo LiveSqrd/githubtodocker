@@ -33,7 +33,6 @@ var Single = React.createClass({
 
   sendto:function () {
     var that = this;
-    building
     that.setState({building:true}) 
    request
     .post("/api/v1/build",this.state)

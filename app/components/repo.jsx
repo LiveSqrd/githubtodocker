@@ -108,7 +108,7 @@ var Repo = React.createClass({
 		
 		return { repos: [repo]} 
 	},
-	componentWillMount: function () {
+	componentDidMount: function () {
 		if(this.isMounted()) {
 			request
 		    .get("/api/v1/repos")

@@ -442,7 +442,7 @@ var Repo = React.createClass({
 		
 		return { repos: [repo]} 
 	},
-	componentWillMount: function () {
+	componentDidMount: function () {
 		if(this.isMounted()) {
 			request
 		    .get("/api/v1/repos")
@@ -543,7 +543,6 @@ var Single = React.createClass({
 
   sendto:function () {
     var that = this;
-    building
     that.setState({building:true}) 
    request
     .post("/api/v1/build",this.state)
