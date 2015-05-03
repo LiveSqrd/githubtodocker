@@ -527,6 +527,7 @@ var Single = React.createClass({
     ,tar:""
     ,image:""
     ,message:""
+    ,building:false
   };
   },
 
@@ -542,6 +543,8 @@ var Single = React.createClass({
 
   sendto:function () {
     var that = this;
+    building
+    that.setState({building:true}) 
    request
     .post("/api/v1/build",this.state)
     .set("Accept", "application/json")
@@ -560,8 +563,10 @@ var Single = React.createClass({
         ), 
         React.createElement("div", {className: "more"}, 
         React.createElement("div", {className: "contentWrapper"}, 
-          
-          React.createElement("fieldset", null, 
+          this.state.building ?
+           React.createElement("h2", null, "building")
+           :  
+          React.createElement("fieldset", {className: "createForm"}, 
           React.createElement("legend", null, "Registry Details"), 
           
           React.createElement("div", null, 
@@ -596,9 +601,13 @@ var Single = React.createClass({
              )
           )
           )
+
+        
         ), 
+       
+        
          this.state.message ? 
-          React.createElement("textarea", null, this.state.message)
+          React.createElement("textarea", null, JSON.Stringify(this.state.message))
           : null
         ), 
         React.createElement(RouteHandler, null)

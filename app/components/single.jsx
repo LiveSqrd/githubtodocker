@@ -17,6 +17,7 @@ var Single = React.createClass({
     ,tar:""
     ,image:""
     ,message:""
+    ,building:false
   };
   },
 
@@ -32,6 +33,8 @@ var Single = React.createClass({
 
   sendto:function () {
     var that = this;
+    building
+    that.setState({building:true}) 
    request
     .post("/api/v1/build",this.state)
     .set("Accept", "application/json")
@@ -50,8 +53,10 @@ var Single = React.createClass({
         </div>        
         <div className="more">
         <div className="contentWrapper">
-          
-          <fieldset>
+         { this.state.building ?
+           <h2>building</h2>
+           :  
+          <fieldset className="createForm">
           <legend>Registry Details</legend>
           
           <div>
@@ -86,9 +91,13 @@ var Single = React.createClass({
              </button>
           </div>
           </fieldset>
+
+        }
         </div>
+       
+        
         { this.state.message ? 
-          <textarea>{this.state.message}</textarea>
+          <textarea>{JSON.Stringify(this.state.message)}</textarea>
           : null}
         </div>        
         <RouteHandler />
