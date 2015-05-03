@@ -9,10 +9,12 @@ var express = require('express')
   , error = debug('app:error')
   , app = express()
   , tools = require('./tools')
-
-
-var everyauth = require('everyauth')
-  ,session = require('express-session');
+  , mainRoutes = require('./routes')
+  , multer = require('multer')
+  , lessMiddleware = require('less-middleware')
+  , path = require('path')
+  , everyauth = require('everyauth')
+  , session = require('express-session');
 
   everyauth.github
   .appId('b9fcf09cf94effdff42a')
@@ -26,6 +28,7 @@ var everyauth = require('everyauth')
   app
   .set('port', process.env.PORT || 3000)
   .set('trust proxy', 1)
+  .set('view engine', 'jade')
   .use(session({ secret: 'keyboard cat'}))
   .use(everyauth.middleware())
   .use(bodyParser.json())
@@ -33,8 +36,10 @@ var everyauth = require('everyauth')
   .use(methodOverride('_method'))
   .use(tools.getReportingInfo(tools.report))
   .use('/api/v1/',require('./api/v1'))
+  .use(multer())
   .use(express.static('public'))
-  .get('/',tools.homePage)
+  .use(lessMiddleware(path.join(__dirname + '/public')))
+  .get('/',mainRoutes.homePage)
   .get('/test', tools.test)
   .get('/session', function(req,res){
     res.send(req.session)

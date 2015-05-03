@@ -1,0 +1,75 @@
+@import 'inc/reset.less';
+@import 'inc/variables.less';
+@import 'inc/mixins.less';
+
+
+.toolbar > .tools .wrap > div .option > div.license-open{
+	> button{
+		position: relative;
+		.arrow{
+			position: absolute;
+			right: 5px;
+			top: 2px;
+			i{
+				color: @brand;
+				text-align: right;
+				font-size: 60%;
+				
+				vertical-align: middle;
+				height: 100%;
+				line-height: 34px;	
+			}			
+		}
+		&.open{
+			.arrow{
+				i{
+					-moz-transform: scaleY(-1);
+				    -webkit-transform: scaleY(-1);
+				    -o-transform: scaleY(-1);
+				    transform: scaleY(-1);
+				    -ms-filter: flipv; /*IE*/
+				    filter: flipv;
+				    top: 0px;
+				}
+			}
+		}
+
+
+		> b{
+			position: absolute;
+			left: 32px;
+			top: 10px;
+			padding: 2px;
+			border-radius: 2px;
+			font-size: 9px;
+			color: @offBrand2;
+			background: #e0e4ec;
+			min-width: 14px;
+			text-align: center;
+		}
+
+		> span{
+			position: absolute;
+			top: 9px;
+			left: 54px;
+			margin-left: 0px;
+
+		}	
+
+		&.gov{
+			> span{
+				left: 58px;
+			}
+		}			
+	}
+
+	// .creative-commons-open{
+	// 	background: rgba(245, 245, 245, 0.8);
+
+	// 	>button{
+			
+	// 	}
+
+	// }
+
+}

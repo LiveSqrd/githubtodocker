@@ -1,0 +1,295 @@
+// colors
+@brand: #00E2FF;
+@brand2: #f07c00;
+
+@offBrand: #697589;
+@offBrand2: #203139;
+@offBrand3: #354750;
+
+@offBrand4: #898fa0;
+
+@h10: #758a95;
+@h10Darker: #617277;
+
+
+@background-header: #f9f9f9;
+@border-header: #EBEBEB;
+
+@border2-header: #EBEBEB;
+
+@background: #eeefef;
+
+
+@background-sub-header: #eceded;
+
+@borders-lights: #efefef;
+
+// Secondary Brand
+@offf1: #1c3664;
+@offf2: #434A77;
+
+
+//toolbar
+
+//fonts
+// @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900);
+
+*{
+	font-family: 'Roboto', sans-serif;
+
+	&.brand-color{
+		color: @brand;
+	}
+}
+
+
+
+
+// thin	 	  100
+// light	  300
+// normal	  400
+// medium	  500
+// bold	 	  700
+// ultra-bold 900
+
+h1,h2,h3,h4,h5,.h6,.h7,.h8,p{
+	margin: 0 auto;
+}
+
+h1{
+	font-size: 80px;
+	line-height: 85px;
+	font-weight: 700;
+	color: @offBrand2;
+}
+
+h2{
+	font-size: 64px;
+	line-height: 70px;
+	font-weight: 700;
+	color: @offBrand2;
+}
+
+h3{
+	font-size: 40px;
+	line-height: 45px;
+	font-weight: 700;
+	color: @offBrand2;
+}
+
+h4{
+	font-size: 34.666667px;
+	line-height: 40px;
+	font-weight: 300;
+	color: @offBrand3;
+}
+
+h5{
+	font-size: 32px;
+	line-height: 38px;
+	font-weight: 100;
+	color: @offBrand2;
+}
+
+.h6{
+	font-size: 24px;
+	line-height: 30px;
+	font-weight: 300;
+	color: #020202;
+}
+
+.h7{
+	font-size: 21.333333px;
+	line-height: 26px;
+	font-weight: 500;
+	color: @offBrand3;
+}
+
+.h8{
+	font-size: 21.333333px;
+	line-height: 26px;
+	font-weight: 400;
+	color: @offBrand3;
+}
+
+.h10{
+	font-size: 16px;
+	line-height: 21px;
+	color: @h10;
+}
+
+
+
+//ICONS
+@font-face {
+
+  font-family: 'hay-icon';
+  src: url('../font/20150304hayicons.eot?1');
+  src: url('../font/20150304hayicons.eot?1#iefix') format('embedded-opentype'),
+       url('../font/20150304hayicons.woff?1') format('woff'),
+       url('../font/20150304hayicons.ttf?1') format('truetype'),
+       url('../font/20150304hayicons.svg?1#hay-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+} 
+ [class^="hay-"]:before, [class*=" hay-"]:before {
+  font-family: "hay-icon";
+  font-style: normal;
+  font-weight: normal;
+  speak: none; 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  /* remove if not needed */
+  margin-left: .2em;
+  font-size: 140%;
+}
+ 
+.hay-log-in:before { content: '\e800'; } 
+.hay-trash-two:before { content: '\e801'; } 
+.hay-added-images:before { content: '\e802'; } 
+.hay-arrow-down:before { content: '\e803'; } 
+.hay-arrow-up:before { content: '\e804'; } 
+.hay-broswe:before { content: '\e805'; } 
+.hay-log-out:before { content: '\e806'; } 
+.hay-key:before { content: '\e807'; } 
+.hay-current-lightbox:before { content: '\e808'; }
+.hay-tag:before { content: '\e809'; } 
+.hay-trash:before { content: '\e80a'; } 
+.hay-info:before { content: '\e80b'; }
+.hay-lightboxes:before { content: '\e80c'; }
+.hay-location:before { content: '\e80d'; }
+.hay-create-lightbox:before { content: '\e80e'; }
+.hay-menu:before { content: '\e80f'; }
+.hay-price-tag:before { content: '\e810'; }
+.hay-purchase-history:before { content: '\e811'; }
+.hay-search-filters:before { content: '\e812'; }
+.hay-rename:before { content: '\e813'; }
+.hay-search:before { content: '\e814'; }
+.hay-settings:before { content: '\e815'; }
+.hay-share:before { content: '\e816'; }
+.hay-x:before { content: '\e817'; }
+.hay-contact:before { content: '\e818'; }
+.hay-thumb:before { content: '\e819'; }
+.hay-dropdown:before { content: '\e81a'; }
+.hay-world:before { content: '\e81b'; }
+.hay-pics:before { content: '\e81c'; }
+.hay-info:before { content: '\e81d'; }
+.hay-dropup:before { content: '\e81e'; }
+.hay-question:before { content: '\e81f'; }
+.hay-download:before { content: '\e820'; }
+.hay-person:before { content: '\e821'; }
+.hay-metrics:before { content: '\e822'; }
+.hay-magnet:before { content: '\e823'; }
+.hay-calendar:before { content: '\e824'; }
+.hay-camera:before { content: '\e825'; }
+.hay-basket:before { content: '\e826'; }
+.hay-clipboard:before { content: '\e827'; }
+.hay-article-alt:before { content: '\e828'; }
+.hay-easel:before { content: '\e829'; }
+.hay-link:before { content: '\e82a'; }
+.hay-chart:before { content: '\e82b'; }
+.hay-heart:before { content: '\e82c'; }
+.hay-add-person:before { content: '\e82d'; }
+.hay-vcard:before { content: '\e82e'; }
+.hay-devices:before { content: '\e82f'; }
+.hay-lightning:before { content: '\e830'; }
+.hay-picture:before { content: '\e831'; }
+.hay-star:before { content: '\e832'; }
+.hay-calendar-inv:before { content: '\e833'; }
+.hay-award:before { content: '\e834'; }
+.hay-eye:before { content: '\e835'; }
+
+
+
+.hay-arrow-left:before {
+	content: '\e803';
+	-ms-transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+
+.hay-arrow-right:before {
+	content: '\e803';
+	-ms-transform: rotate(270deg);
+	-webkit-transform: rotate(270deg);
+	transform: rotate(270deg);
+}
+
+
+
+
+button{
+	transition: all 0.2s;	
+}
+
+
+@burgerSize: 20px;
+.hay-burger-animate{
+	margin: 10px;
+	display: inline-block;
+	width: @burgerSize * 1.8;
+	height: @burgerSize;
+
+
+	span, span:before, span:after {
+		display: block;
+		width: 20px;
+		height: @burgerSize / 5;
+		background: #898fa0;
+		transition: all 0.2s;
+		backface-visibility: hidden;		
+
+	}
+
+	span {
+		position: relative;
+		margin: (@burgerSize * 2 / 5) 0 0;		
+	}
+
+	span:before, span:after {
+		position: absolute;
+		content: "";
+	}
+
+	span:before {
+		top: @burgerSize * -2 / 5;
+		}
+
+	span:after {
+		top: @burgerSize * 2 / 5;
+		}
+
+	&:hover{
+		span {			
+			background: @brand;
+		}
+		span:before, span:after {
+			background: @brand;
+		}
+	}
+	
+	&.open {
+		span:before {
+			transform: translate(0px, (@burgerSize * 2 / 5)) rotate(-45deg);
+		}
+		span:after {
+			transform: translate(0px, -(@burgerSize * 2 / 5)) rotate(45deg);
+		}
+		span {
+			background: transparent;
+		}		
+	}
+}
+
+
+
+
+
+
+

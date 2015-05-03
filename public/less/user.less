@@ -1,0 +1,129 @@
+@import 'inc/reset.less';
+@import 'inc/variables.less';
+@import 'inc/mixins.less';
+
+@import 'inc/ionicons.less';
+
+@import 'ui.less';
+@import 'frame.less';
+
+
+.user, .textPage{
+	min-width: 200px;
+	width: 50%;
+	max-width: 600px;
+	margin: 0 auto;	
+
+	position: relative;
+	top: 20%;
+
+	.branding{
+		margin-bottom: 25px;
+		.main_brand{
+			height: 60px;
+			margin-bottom: 12px;
+		}
+
+		h2{
+			text-align: center;			
+			font-size: 16px;
+			line-height: 23px;
+		}
+
+		h4{
+			text-align: center;
+			font-size: 16px;
+			line-height: 23px;
+			margin-top: 15px;
+		}
+		
+		* a,a{
+			color: @brand;
+			text-decoration: none;
+			font-weight: 400;
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+
+		> a{
+			text-align: center;
+			font-size: 16px;
+			line-height: 23px;
+			margin-top: 15px;
+			width: 100%;
+			display: block;			
+		}
+
+	}	
+
+	.formWrap{
+		.form{
+			width: 100%;
+			margin: 0 auto;
+			.wrap{
+				margin-bottom: 10px;
+			}
+			.submitWrap{
+				border: none;
+				margin-top: 10px;
+			}			
+		}	
+
+	}
+
+	footer{		
+		margin-top: 20px;
+		width: 100%;
+		margin: 0 auto;
+		text-align: center;			
+		a{
+			font-size: 12px;
+			font-weight: 200;
+			color: #cccccc;
+			text-decoration: none;
+			&:hover{
+				color: #333333;
+			}
+		}
+	}
+}
+
+.textPage{
+	h2{
+		text-align: center;			
+		font-size: 26px;
+		line-height: 63px;
+	}
+	> p{		
+		width: 80%;
+		margin-bottom: 17px;
+		font-weight: 300;
+		text-align: center;
+		font-size: 16px;
+		line-height: 23px;
+	}	
+
+	* a,a{
+		color: @brand;
+		text-decoration: none;
+		font-weight: 400;
+		&:hover{
+			text-decoration: underline;
+		}
+	}
+
+	&#tos{
+		min-width: 200px;
+		width: 80%;
+		max-width: 900px;
+		margin: 0 auto;
+		overflow-y: scroll;
+		height: 90%;
+		top: 0;
+
+
+	}
+
+
+}

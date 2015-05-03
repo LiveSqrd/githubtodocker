@@ -1,0 +1,26 @@
+@import 'inc/reset.less';
+@import 'inc/variables.less';
+@import 'inc/mixins.less';
+
+#searchPage #search{
+	.calcHeight("100% - 61px", 95%);
+	overflow: hidden;	
+	position: relative;
+
+	.search-results{
+		overflow: hidden;
+		overflow-y: scroll;
+
+		.calcWidth("100% - 30px", 95%);
+		.calcHeight("100% - 0px", 100%);
+		padding-left: 30px;
+		
+		transition: all .3s;
+
+		&.open{
+			.calcWidth("100% - 245px", 80%);
+			transition: all .15s;
+			padding-left: 245px;
+		}		
+	}	
+}

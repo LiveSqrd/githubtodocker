@@ -1,0 +1,54 @@
+@import 'inc/variables.less';
+@import 'inc/mixins.less';
+
+header#top{
+	background-color: white;
+
+	&.visible{
+		background-color:@background-header;
+		border-bottom: 1px solid @border-header;
+		-webkit-box-shadow: 2px 2px 70px rgba(187, 187, 187, 0.31);
+		-moz-box-shadow: 2px 2px 70px rgba(187, 187, 187, 0.31);
+		box-shadow: 2px 2px 70px rgba(187, 187, 187, 0.31);
+
+		> div{
+			display: block;
+		}
+	}
+
+	.main_brand{
+		button.to-landing.hay-logo{
+			
+		}
+	}
+	.main_search{
+		.wrap{
+			input{
+				font-size: 14px;
+			}
+
+			button{
+				height: 32px;				
+			}
+
+			.notification{
+				height: 32px;
+				top: 33px;
+
+				h5{
+					line-height: 32px;
+				}
+			}
+				
+		}		
+	}	
+
+	&.on_landing{
+		background: none;
+		border: none;
+	}
+}
+	
+	
+			
+	
