@@ -35,9 +35,9 @@ var Repo = React.createClass({
 		}
 	},
 	componentWillUnmount: function () {},
-	createRepoNodes: function () {	
-		console.log("sad",this.state.repos)
-		var nodes = this.state.repos.map(function (repos) {
+	createRepoNodes: function (repos) {	
+		console.log("sad",repos)
+		var nodes = repos.map(function (repos) {
 			var url = "/#/repo/"+repos.id;
 			return (				
 				<a href={url} className="singleRepo" key={repos.id}>
@@ -53,7 +53,7 @@ var Repo = React.createClass({
 		return nodes;
 	},
 	render: function () {		
-		var listRepos = this.createRepoNodes().bind(this)
+		var listRepos = this.createRepoNodes(this.state.repos)
 		return (
 			<div className="repo">        
 				<div className="hero">
