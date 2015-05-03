@@ -443,6 +443,7 @@ var Repo = React.createClass({
 		return { repos: [repo]} 
 	},
 	componentDidMount: function () {
+		var that = this;
 		if(this.isMounted()) {
 			request
 		    .get("/api/v1/repos")
@@ -520,10 +521,10 @@ var Single = React.createClass({
   mixins: [],
 
   getInitialState: function () { return {
-    email:""
+     email:""
     ,username:""
     ,password:""
-    ,serverAddress:""
+    ,serverAddress:"https://index.docker.io/v1/"
     ,tar:""
     ,image:""
     ,message:""
@@ -599,15 +600,16 @@ var Single = React.createClass({
             React.createElement("button", {name: "create", onClick: this.sendto}, "Create"
              )
           )
-          )
+          ), 
 
         
-        ), 
+         this.state.message ? 
+          React.createElement("textarea", null, JSON.stringify(this.state.message,null,4))
+          : null
+        )
        
         
-         this.state.message ? 
-          React.createElement("textarea", null, JSON.Stringify(this.state.message))
-          : null
+        
         ), 
         React.createElement(RouteHandler, null)
       )

@@ -10,10 +10,10 @@ var Single = React.createClass({
   mixins: [],
 
   getInitialState: function () { return {
-    email:""
+     email:""
     ,username:""
     ,password:""
-    ,serverAddress:""
+    ,serverAddress:"https://index.docker.io/v1/"
     ,tar:""
     ,image:""
     ,message:""
@@ -92,12 +92,13 @@ var Single = React.createClass({
           </fieldset>
 
         }
+        { this.state.message ? 
+          <textarea>{JSON.stringify(this.state.message,null,4)}</textarea>
+          : null}
         </div>
        
         
-        { this.state.message ? 
-          <textarea>{JSON.Stringify(this.state.message)}</textarea>
-          : null}
+        
         </div>        
         <RouteHandler />
       </div>
