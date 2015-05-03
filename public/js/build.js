@@ -436,14 +436,13 @@ var Single = React.createClass({
     mixins: [State, Navigation],
 
   getInitialState: function () {
-    console.log(this.getParams().repo)
    return {
      email:""
     ,username:""
     ,password:""
     ,serverAddress:"https://index.docker.io/v1/"
-    ,tar:""
-    ,image:""
+    ,tar:"https://github.com/"+this.getParams().user+"/"+this.getParams().repo+"/master.tar.gz"
+    ,image:this.getParams().user+"/"+this.getParams().repo
     ,message:""
     ,building:false
   };
