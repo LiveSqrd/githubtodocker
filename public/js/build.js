@@ -441,7 +441,7 @@ var Single = React.createClass({
     ,username:""
     ,password:""
     ,serverAddress:"https://index.docker.io/v1/"
-    ,tar:"https://github.com/"+this.getParams().user+"/"+this.getParams().repo+"/master.tar.gz"
+    ,tar:"https://github.com/"+this.getParams().user+"/"+this.getParams().repo+"/archive/master.tar.gz"
     ,image:this.getParams().user+"/"+this.getParams().repo
     ,message:""
     ,building:false
@@ -534,12 +534,6 @@ var Single = React.createClass({
 });
 
 module.exports = Single;
-
-// , username = req.body.username
-// , password = req.body.password
-// , serverAddress = req.body.serverAddress
-// , tar = req.body.tar
-// , image = req.body.image
 
 
 
