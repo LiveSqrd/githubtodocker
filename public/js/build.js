@@ -348,111 +348,20 @@ var Repo = React.createClass({
 
 	getInitialState: function () { 
 		var that = this
-		var repo = {
-			id: 12532516,
-			name: "bitstoberlin",
-			full_name: "gagarigs/bitstoberlin",
-			owner: {
-			login: "gagarigs",
-			id: 6877651,
-			avatar_url: "https://avatars.githubusercontent.com/u/6877651?v=3",
-			gravatar_id: "",
-			url: "https://api.github.com/users/gagarigs",
-			html_url: "https://github.com/gagarigs",
-			followers_url: "https://api.github.com/users/gagarigs/followers",
-			following_url: "https://api.github.com/users/gagarigs/following{/other_user}",
-			gists_url: "https://api.github.com/users/gagarigs/gists{/gist_id}",
-			starred_url: "https://api.github.com/users/gagarigs/starred{/owner}{/repo}",
-			subscriptions_url: "https://api.github.com/users/gagarigs/subscriptions",
-			organizations_url: "https://api.github.com/users/gagarigs/orgs",
-			repos_url: "https://api.github.com/users/gagarigs/repos",
-			events_url: "https://api.github.com/users/gagarigs/events{/privacy}",
-			received_events_url: "https://api.github.com/users/gagarigs/received_events",
-			type: "Organization",
-			site_admin: false
-			},
-			private: false,
-			html_url: "https://github.com/gagarigs/bitstoberlin",
-			description: "Bits To Berlin Project",
-			fork: false,
-			url: "https://api.github.com/repos/gagarigs/bitstoberlin",
-			forks_url: "https://api.github.com/repos/gagarigs/bitstoberlin/forks",
-			keys_url: "https://api.github.com/repos/gagarigs/bitstoberlin/keys{/key_id}",
-			collaborators_url: "https://api.github.com/repos/gagarigs/bitstoberlin/collaborators{/collaborator}",
-			teams_url: "https://api.github.com/repos/gagarigs/bitstoberlin/teams",
-			hooks_url: "https://api.github.com/repos/gagarigs/bitstoberlin/hooks",
-			issue_events_url: "https://api.github.com/repos/gagarigs/bitstoberlin/issues/events{/number}",
-			events_url: "https://api.github.com/repos/gagarigs/bitstoberlin/events",
-			assignees_url: "https://api.github.com/repos/gagarigs/bitstoberlin/assignees{/user}",
-			branches_url: "https://api.github.com/repos/gagarigs/bitstoberlin/branches{/branch}",
-			tags_url: "https://api.github.com/repos/gagarigs/bitstoberlin/tags",
-			blobs_url: "https://api.github.com/repos/gagarigs/bitstoberlin/git/blobs{/sha}",
-			git_tags_url: "https://api.github.com/repos/gagarigs/bitstoberlin/git/tags{/sha}",
-			git_refs_url: "https://api.github.com/repos/gagarigs/bitstoberlin/git/refs{/sha}",
-			trees_url: "https://api.github.com/repos/gagarigs/bitstoberlin/git/trees{/sha}",
-			statuses_url: "https://api.github.com/repos/gagarigs/bitstoberlin/statuses/{sha}",
-			languages_url: "https://api.github.com/repos/gagarigs/bitstoberlin/languages",
-			stargazers_url: "https://api.github.com/repos/gagarigs/bitstoberlin/stargazers",
-			contributors_url: "https://api.github.com/repos/gagarigs/bitstoberlin/contributors",
-			subscribers_url: "https://api.github.com/repos/gagarigs/bitstoberlin/subscribers",
-			subscription_url: "https://api.github.com/repos/gagarigs/bitstoberlin/subscription",
-			commits_url: "https://api.github.com/repos/gagarigs/bitstoberlin/commits{/sha}",
-			git_commits_url: "https://api.github.com/repos/gagarigs/bitstoberlin/git/commits{/sha}",
-			comments_url: "https://api.github.com/repos/gagarigs/bitstoberlin/comments{/number}",
-			issue_comment_url: "https://api.github.com/repos/gagarigs/bitstoberlin/issues/comments{/number}",
-			contents_url: "https://api.github.com/repos/gagarigs/bitstoberlin/contents/{+path}",
-			compare_url: "https://api.github.com/repos/gagarigs/bitstoberlin/compare/{base}...{head}",
-			merges_url: "https://api.github.com/repos/gagarigs/bitstoberlin/merges",
-			archive_url: "https://api.github.com/repos/gagarigs/bitstoberlin/{archive_format}{/ref}",
-			downloads_url: "https://api.github.com/repos/gagarigs/bitstoberlin/downloads",
-			issues_url: "https://api.github.com/repos/gagarigs/bitstoberlin/issues{/number}",
-			pulls_url: "https://api.github.com/repos/gagarigs/bitstoberlin/pulls{/number}",
-			milestones_url: "https://api.github.com/repos/gagarigs/bitstoberlin/milestones{/number}",
-			notifications_url: "https://api.github.com/repos/gagarigs/bitstoberlin/notifications{?since,all,participating}",
-			labels_url: "https://api.github.com/repos/gagarigs/bitstoberlin/labels{/name}",
-			releases_url: "https://api.github.com/repos/gagarigs/bitstoberlin/releases{/id}",
-			created_at: "2013-09-02T05:15:22Z",
-			updated_at: "2015-02-19T16:34:33Z",
-			pushed_at: "2013-10-27T14:22:07Z",
-			git_url: "git://github.com/gagarigs/bitstoberlin.git",
-			ssh_url: "git@github.com:gagarigs/bitstoberlin.git",
-			clone_url: "https://github.com/gagarigs/bitstoberlin.git",
-			svn_url: "https://github.com/gagarigs/bitstoberlin",
-			homepage: null,
-			size: 121096,
-			stargazers_count: 0,
-			watchers_count: 0,
-			language: "JavaScript",
-			has_issues: true,
-			has_downloads: true,
-			has_wiki: true,
-			has_pages: false,
-			forks_count: 0,
-			mirror_url: null,
-			open_issues_count: 0,
-			forks: 0,
-			open_issues: 0,
-			watchers: 0,
-			default_branch: "master",
-			permissions: {
-			admin: true,
-			push: true,
-			pull: true}
-			}
 		
-		return { repos: [repo]} 
+		
+		return { repos: []} 
 	},
 	componentDidMount: function () {
 		var that = this;
 		if(this.isMounted()) {
 			request
 		    .get("/api/v1/repos")
-		    .set("Accept", "application/json")
 		    .end(function (error, res) {              
 		      if(error){
 		      	
 		      } else{
-		      	that.setState({ repos: res.result})
+		      	that.setState({ repos: res.body.result})
 		      }
 
 		    })
@@ -468,7 +377,9 @@ var Repo = React.createClass({
 					React.createElement("span", {className: "long"}, repos.name), 
 					React.createElement("span", {className: "short"}, repos.private), 
 					React.createElement("span", {className: "long"}, repos.description), 
-					React.createElement("span", {className: "short"}, React.createElement("a", {href: repos.html_url, target: "_blank"}, " > "))
+					React.createElement("span", {className: "short"}, 
+						React.createElement("a", {href: repos.html_url, target: "_blank"}, " > ")
+					)
 				)
 			);
 		});
@@ -549,7 +460,7 @@ var Single = React.createClass({
     .post("/api/v1/build",this.state)
     .set("Accept", "application/json")
     .end(function (error, res) {      
-      that.setState({message:res})        
+      that.setState({message:res.xhr.reponse})        
     })
   },
 
@@ -564,7 +475,7 @@ var Single = React.createClass({
         React.createElement("div", {className: "more"}, 
         React.createElement("div", {className: "contentWrapper"}, 
           this.state.building ?
-           React.createElement("h2", null, "building")
+           React.createElement("h2", null, "building ")
            :  
           React.createElement("fieldset", {className: "createForm"}, 
           React.createElement("legend", null, "Registry Details"), 
@@ -604,7 +515,7 @@ var Single = React.createClass({
 
         
          this.state.message ? 
-          React.createElement("textarea", null, JSON.stringify(this.state.message,null,4))
+          React.createElement("textarea", null, this.state.message)
           : null
         )
        

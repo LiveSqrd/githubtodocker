@@ -38,7 +38,7 @@ var Single = React.createClass({
     .post("/api/v1/build",this.state)
     .set("Accept", "application/json")
     .end(function (error, res) {      
-      that.setState({message:res})        
+      that.setState({message:res.xhr.reponse})        
     })
   },
 
@@ -53,7 +53,7 @@ var Single = React.createClass({
         <div className="more">
         <div className="contentWrapper">
          { this.state.building ?
-           <h2>building</h2>
+           <h2>building </h2>
            :  
           <fieldset className="createForm">
           <legend>Registry Details</legend>
@@ -93,7 +93,7 @@ var Single = React.createClass({
 
         }
         { this.state.message ? 
-          <textarea>{JSON.stringify(this.state.message,null,4)}</textarea>
+          <textarea>{this.state.message}</textarea>
           : null}
         </div>
        
