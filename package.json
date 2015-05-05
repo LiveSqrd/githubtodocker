@@ -16,6 +16,7 @@
     "express-session": "^1.11.1",
     "github": "^0.2.4",
     "gulp": "^3.4.0",
+    "http-browserify": "^1.7.0",
     "hyperdirect": "0.0.0",
     "hyperquest": "^1.2.0",
     "imports-loader": "*",

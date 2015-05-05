@@ -16,14 +16,15 @@ var express = require('express')
   , everyauth = require('everyauth')
   , session = require('express-session');
 
+
   everyauth.github
-  .appId('b9fcf09cf94effdff42a')
-  .appSecret('10303d48dbd0427179196bbb10c575d4e3e75b99')
-  .findOrCreateUser( function (session, accessToken, accessTokenExtra, githubUserMetadata) {
-    return {"_id":0,session:session,accessToken:accessToken,accessTokenExtra:accessTokenExtra, githubUserMetadata:githubUserMetadata}
-  })
-  .scope("user,user:email,repo")
-  .redirectPath('/#repo')
+    .appId(process.env.GITHUBID)
+    .appSecret(process.env.GITHUBTOKEN)
+    .findOrCreateUser( function (session, accessToken, accessTokenExtra, githubUserMetadata) {
+      return {"_id":0,session:session,accessToken:accessToken,accessTokenExtra:accessTokenExtra, githubUserMetadata:githubUserMetadata}
+    })
+    .scope("user,user:email,repo")
+    .redirectPath('/#repo')
 
   app
   .set('port', process.env.PORT || 3000)

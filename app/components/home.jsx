@@ -5,61 +5,67 @@ var Link = Router.Link
 
 var Home = React.createClass({
   displayName: "Home",
-  propTypes: {},
-  mixins: [],
-
-  getInitialState: function () { return null; },
-
-  componentWillMount: function () {},
-
-  componentWillUnmount: function () {},
 
   render: function () {
+
     return (
-      <div className="landing">        
+
+      <div className="landing">
         <div className="hero">
-        <div className="contentWrapper">
-          <h1>Build <i className='dockerLogo'></i>images faster.</h1>
-          <h2>Pollution free container packaging in under 20 seconds.</h2>
-          <h2 className="lastChild"> 
-            Don&apos;t believe me? 
-            <Link to="about"> Learn More</Link>
-          </h2>
-          <a href="/auth/github" className="gitlogin"><i></i>Get started</a>
-        </div>
-        </div>
-        <div className="break">
-        <div className="contentWrapper">
-          <h2> 
-            P.S. It&#39;s all free. Find out 
-            <Link to="pricing"><i></i> why.</Link>
-          </h2>
-        </div>  
+
+          <div className="contentWrapper">
+            <h1>Container Factory</h1>
+            <h2>Turn your Github repo into a published container image</h2>
+
+            <div className="row imageRow">
+              <div className="col-sm-offset-2 col-sm-3 text-center">
+                <i className='githubLogo'></i>
+                <h2>source code </h2>
+              </div>
+
+              <div className="col-sm-2 text-center">
+                <i className='arrowImage'></i>
+              </div>
+
+              <div className="col-sm-3 text-center">
+                <i className='dockerLogo'></i>
+                <h2>docker image</h2>
+              </div>
+            </div>
+
+          </div>
         </div>
 
-        <div className="more">
-        <div className="contentWrapper">
-          <i className="gear"></i>
-          <h2>Build in 3 easy steps.</h2>
-          <h2 className="lastChild"> So easy a Ruby on Rails developer can do it.</h2>
-          <span className="list">
-            <span>
-              <h3>Pull from github</h3>
-              <p>Choose from your public and private repos.</p>
-            </span>
-            <span>
-              <h3>Add your registry</h3>
-              <p>Fill out all the required and optional registry fields.</p>
-            </span>
-            <span>
-              <h3>Let the factory do it&apos;s thing</h3>
-              <p>Don&apos;t worry it&apos;s going to take less than 5 blinks.</p>
-              <small>Read more about blinking <a href="http://www.smithsonianmag.com/science-nature/why-do-we-blink-so-frequently-172334883/?no-ist=">here</a>, you&apos;re welcome.</small>
-            </span>
-          </span>
+
+        <div className="start-section text-center">
+          <a href="/auth/github" className="gitlogin">
+            <i></i> Get started
+          </a>
         </div>
-        </div>        
-        <RouteHandler />
+
+
+        <div className="break">
+
+          <div className="row contentWrapper text-center steps-padding">
+            <div className="col-sm-4">
+              <h2>1. Select a GitHub repository</h2>
+              <p>Sign in with GitHub and select one of your public or private repositories.</p>
+            </div>
+
+            <div className="col-sm-4">
+              <h2>2. Provide your registry credentials</h2>
+              <p>Enter your credentials from your favorite container registry. You'll need your email address, your username and your password.</p>
+            </div>
+
+            <div className="col-sm-4">
+              <h2>3. Collect your container!</h2>
+              <p>In about a minute, your project will be available as a container in your container registry!</p>
+            </div>
+          </div>
+
+
+        </div>
+
       </div>
     );
   }

@@ -18,9 +18,9 @@ var notify = require('gulp-notify')
 gulp.task('less', function () {
 	return gulp.src('./public/less/style.less')
 
-	.pipe(less({compress: true}).on('error', gutil.log))	
+	.pipe(less({compress: false}).on('error', gutil.log))
 
-	.pipe(minifyCSS({keepBreaks: false}))
+	.pipe(minifyCSS({keepBreaks: true}))
 	.pipe(gulp.dest('./public/less/'))
 	.pipe(notify('Less Compiled Minified'));
 });

@@ -11,7 +11,6 @@ var Single = require("../app/components/single.jsx")
 
 var NotFound = require("../app/components/notfound.jsx")
 
-
 var Route = Router.Route
 var DefaultRoute = Router.DefaultRoute
 var NotFoundRoute = Router.NotFoundRoute
@@ -19,10 +18,10 @@ var NotFoundRoute = Router.NotFoundRoute
 var routes = (
 	<Route handler={App} path="/">
 		<DefaultRoute name="app" handler={Home} />
-		<Route name="repo" path="repo" handler={Repo} />
-		<Route name="single" path="repo/:repo" handler={Single} />
-		<Route name="singles" path="repo/:user/:repo" handler={Single} />
 
+		<Route name="repo" path="repo" handler={Repo} />
+    <Route name="single" path="repo/:user/:repo/:private" handler={Single} />
+		<Route name="singles" path="repo/:user/:repo" handler={Single} />
 		<Route name="about" path="about" handler={About} />
 		<Route name="pricing" path="pricing" handler={Pricing} />
 
@@ -31,9 +30,6 @@ var routes = (
 )
 
 
-Router.run(routes, function (Handler, state) {
-	React.render(
-		<Handler />,
-		document.getElementById("www")
-	)
+Router.run(routes, function (Handler) {
+	React.render(<Handler />, document.getElementById("www"))
 })

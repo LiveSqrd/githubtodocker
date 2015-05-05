@@ -6,21 +6,17 @@ var Footer = require("./footer.jsx")
 
 var App = React.createClass({
   displayName: "App",
-  propTypes: {},
-  mixins: [],
-
-  getInitialState: function () { return null; },
-
-  componentWillMount: function () {},
-
-  componentWillUnmount: function () {},
 
   render: function () {
     return (
       <div className="MainAppWrap">
+
         <Header />
+
         <RouteHandler {...this.props} />
+
         <Footer />
+
       </div>
     );
   }
