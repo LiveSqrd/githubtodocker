@@ -136,7 +136,22 @@ var Header = React.createClass({
 		return (
 			React.createElement("div", {className: "mainFooter"}, 
         React.createElement("div", {className: "contentWrapper"}, 
-          React.createElement("p", {className: "footer-text"}, "A joint project between Haystack.io and LSQ.io")
+
+          React.createElement("ul", {className: "list-inline footer-text"}, 
+            React.createElement("li", null, 
+              React.createElement("span", null, "Built at Disrupt NY Hackathon 2015 by  ", 
+                React.createElement("a", {href: "https://lsqio.io", target: "_blank"}, "Haystack.im"), " &  ", 
+                React.createElement("a", {href: "https://haystack.im", target: "_blank"}, "LSQ.io")
+              )
+            ), 
+            React.createElement("li", null, "|"), 
+            React.createElement("li", null, 
+              React.createElement("span", null, 
+                React.createElement("a", {href: "https://github.com/lsqio", target: "_blank"}, "View the source code"), " on GitHub"
+              )
+            )
+          )
+
         )
 			)
 		)
@@ -474,7 +489,9 @@ var Single = React.createClass({
     if(name=="branch")
       this.getTar(e.target.value)
   },
-  sendto:function () {
+  sendto:function (e) {
+    e.preventDefault()
+
     var that = this;
     var opts = {
       path:'/api/v1/build'

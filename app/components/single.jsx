@@ -61,7 +61,9 @@ var Single = React.createClass({
     if(name=="branch")
       this.getTar(e.target.value)
   },
-  sendto:function () {
+  sendto:function (e) {
+    e.preventDefault()
+
     var that = this;
     var opts = {
       path:'/api/v1/build'
