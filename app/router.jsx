@@ -5,8 +5,6 @@ var request = require("superagent")
 var App = require("../app/components/app.jsx")
 var Home = require("../app/components/home.jsx")
 var Repo = require("../app/components/repo.jsx")
-var About = require("../app/components/about.jsx")
-var Pricing = require("../app/components/pricing.jsx")
 var Single = require("../app/components/single.jsx")
 
 var NotFound = require("../app/components/notfound.jsx")
@@ -21,8 +19,6 @@ var routes = (
 
 		<Route name="repo" path="repo" handler={Repo} />
 		<Route name="single" path="repo/:user/:repo/:branch/:private" handler={Single} />
-		<Route name="about" path="about" handler={About} />
-		<Route name="pricing" path="pricing" handler={Pricing} />
 
 		<NotFoundRoute handler={NotFound} />
 	</Route>

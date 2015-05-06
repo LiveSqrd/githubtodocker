@@ -153,14 +153,15 @@ var Single = React.createClass({
 
           { this.state.status == "" ?
 
-            <div className="row">
+            <form onSubmit={this.sendto}>
+              <div className="row">
 
-              <div className="col-sm-6">
+                <div className="col-sm-6">
 
-                <form className="form">
                   <fieldset>
                     <legend>Container Registry Details</legend>
-                    <p>Enter your container registry credentials. If you do not have an account with a container registry you will need to create one.</p>
+                    <p>Enter your container registry credentials. If you do not have an account with a container registry you will need to &nbsp;
+                      <a className="instruction-link" href="https://hub.docker.com" target="_blank">create one</a>.</p>
 
                     <div>
                       <label htmlFor="email">Email</label>
@@ -168,11 +169,11 @@ var Single = React.createClass({
                     </div>
                     <div>
                       <label htmlFor="username">Username</label>
-                      <input className="form-control" name="username" type="text" value={this.state.username} onChange={this.handleChange.bind(this, 'username') } placeholder="ex: bob" required autofocus />
+                      <input className="form-control" name="username" type="text" value={this.state.username} onChange={this.handleChange.bind(this, 'username') } placeholder="your container registry username" required autofocus />
                     </div>
                     <div>
                       <label htmlFor="password">Password</label>
-                      <input className="form-control" name="password" type="password" value={this.state.password} onChange={this.handleChange.bind(this, 'password') } placeholder="6 digits, a combination of numbers and letters" required />
+                      <input className="form-control" name="password" type="password" value={this.state.password} onChange={this.handleChange.bind(this, 'password') } placeholder="your container registry password" required />
                     </div>
                     <div>
                       <label htmlFor="image">Container Image Name</label>
@@ -182,16 +183,11 @@ var Single = React.createClass({
                       <label htmlFor="serverAddress">Registry Server Address</label>
                       <input className="form-control" name="serverAddress" type="text" value={this.state.serverAddress} onChange={this.handleChange.bind(this, 'serverAddress') } placeholder=" ex: https://index.docker.io/v1/" required autofocus />
                     </div>
-
-
                   </fieldset>
-                </form>
+                </div>
 
-              </div>
+                <div className="col-sm-6">
 
-              <div className="col-sm-6">
-
-                <form>
                   <fieldset className="">
                     <legend>GitHub Repository Details</legend>
 
@@ -210,16 +206,28 @@ var Single = React.createClass({
                     </select>
                     <br/>
                   </fieldset>
-                </form>
+                </div>
+
+                <div className="col-sm-12 text-center">
+
+                  <div className="create-button">
+
+                    <div className="well-sm">
+                      <p>
+                        <strong>Note: </strong>
+                        If your repo contains a NodeJS project we will add a pre-built docker file for you. If your repository does not contain a NodeJS project you will need to add a docker file to your repo before using Container Factory (&nbsp;
+                        <a className="instruction-link" href="https://github.com/dockerfile" target="_blank">docker file examples</a>&nbsp;). We plan on adding more languages to the automated build process, and you can help by contributing to &nbsp;
+                        <a className="instruction-link" href="https://github.com/lsqio/container-factory" target="_blank">Container Factory</a>.</p>
+                    </div>
+
+                    <button className="btn btn-lg btn-success" name="create" type="submit" >Create container and publish</button>
+                  </div>
+
+                </div>
 
               </div>
 
-              <div className="col-sm-12 text-center">
-                <button className="btn btn-lg btn-success create-button" name="create" onClick={this.sendto} >Create container and publish</button>
-              </div>
-
-            </div>
-
+            </form>
             :
 
             <div className="row">

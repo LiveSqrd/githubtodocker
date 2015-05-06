@@ -51,8 +51,9 @@ var Home = React.createClass({
 
               <div className="col-sm-4">
                 <h2>1. Select a GitHub repository</h2>
-                <p>If your repo contains a NodeJS project we will add a pre-built docker file for you. If your repository does not contain a NodeJS project you will need to add a docker file to your repo (for examples of docker files see https://github.com/dockerfile). We plan on adding more languages to the automated build process, and you can help by contributing to &nbsp;
-                  <a className="instruction-link" href="https://github.com/lsqio/container-factory">Container Factory</a>.</p>
+                <p>If your repo contains a NodeJS project we will add a pre-built docker file for you. If your repository does not contain a NodeJS project you will need to add a docker file to your repo before using Container Factory (&nbsp;
+                <a className="instruction-link" href="https://github.com/dockerfile" target="_blank">docker file examples</a>&nbsp;). We plan on adding more languages to the automated build process, and you can help by contributing to &nbsp;
+                <a className="instruction-link" href="https://github.com/lsqio/container-factory" target="_blank">Container Factory</a>.</p>
               </div>
 
               <div className="col-sm-4">
