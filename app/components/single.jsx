@@ -133,7 +133,8 @@ var Single = React.createClass({
 
     var that = this
     var scrollElem = document.getElementById("logs")
-    var options = this.state.branches.map(function(branch){ return(<option value={branch}>{branch}</option>)} )
+
+    var options = this.state.branches.map(function(branch, index){ return(<option value={branch} key={index}>{branch}</option>)} )
 
     setTimeout(function(){
       if(that.followLogs && scrollElem)
@@ -148,81 +149,100 @@ var Single = React.createClass({
           </div>
         </div>
 
-        <div className="more">
-          <div className="contentWrapper">
+        <div className="container">
 
-            { this.state.status == "" ?
+          { this.state.status == "" ?
 
-              <div className="row">
-                <div className="col-sm-6">
+            <div className="row">
 
-                  <form className="form">
+              <div className="col-sm-6">
 
-                    <fieldset className="">
-                      <legend>Registry Details</legend>
+                <form className="form">
+                  <fieldset>
+                    <legend>Container Registry Details</legend>
+                    <p>Enter your container registry credentials. If you do not have an account with a container registry you will need to create one.</p>
 
-                      <div>
-                        <label for="email">Email </label>
-                        <input className="form-control" name="email" type="email" value={this.state.email} onChange={this.handleChange.bind(this, 'email') } placeholder="ex: bob@bobbyland.com" required autofocus />
-                      </div>
-                      <div>
-                        <label for="username">Username:</label>
-                        <input className="form-control" name="username" type="text" value={this.state.username} onChange={this.handleChange.bind(this, 'username') } placeholder="ex: bob" required autofocus />
-                      </div>
-                      <div>
-                        <label for="password">Password:</label>
-                        <input className="form-control" name="password" type="password" value={this.state.password} onChange={this.handleChange.bind(this, 'password') } placeholder="6 digits, a combination of numbers and letters" required />
-                      </div>
-                      <div>
-                        <label for="serverAddress">Server Address:</label>
-                        <input className="form-control" name="serverAddress" type="text" value={this.state.serverAddress} onChange={this.handleChange.bind(this, 'serverAddress') } placeholder=" ex: https://index.docker.io/v1/" required autofocus />
-                      </div>
-                      <div>
-                        <label for="image">Image:</label>
-                        <input className="form-control" name="image" value={this.state.image} onChange={this.handleChange.bind(this, 'image') } type="text" placeholder="scope/name" required />
-                      </div>
+                    <div>
+                      <label htmlFor="email">Email</label>
+                      <input className="form-control" name="email" type="email" value={this.state.email} onChange={this.handleChange.bind(this, 'email') } placeholder="ex: email@example.com" required autofocus />
+                    </div>
+                    <div>
+                      <label htmlFor="username">Username</label>
+                      <input className="form-control" name="username" type="text" value={this.state.username} onChange={this.handleChange.bind(this, 'username') } placeholder="ex: bob" required autofocus />
+                    </div>
+                    <div>
+                      <label htmlFor="password">Password</label>
+                      <input className="form-control" name="password" type="password" value={this.state.password} onChange={this.handleChange.bind(this, 'password') } placeholder="6 digits, a combination of numbers and letters" required />
+                    </div>
+                    <div>
+                      <label htmlFor="image">Container Image Name</label>
+                      <input className="form-control" name="image" value={this.state.image} onChange={this.handleChange.bind(this, 'image') } type="text" placeholder="scope/name" required />
+                    </div>
+                    <div>
+                      <label htmlFor="serverAddress">Registry Server Address</label>
+                      <input className="form-control" name="serverAddress" type="text" value={this.state.serverAddress} onChange={this.handleChange.bind(this, 'serverAddress') } placeholder=" ex: https://index.docker.io/v1/" required autofocus />
+                    </div>
 
-                      <button className="btn btn-lg btn-default" name="create" onClick={this.sendto} >Create</button>
 
-                    </fieldset>
-                  </form>
-
-                </div>
-
-                <div className="col-sm-6">
-
-                  <form>
-                    <fieldset className="">
-                      <legend>GitHub Repository Details</legend>
-                      <p>GitHub user: {this.getParams().user}</p>
-                      <p>Repository: {this.getParams().repo}</p>
-
-                      <label for="tar">Select a branch:</label>
-                      <select className="form-control" name="branch" value={this.state.branch} onChange={this.handleChange.bind(this, 'branch') }required>
-                        {options}
-                      </select>
-                      <br/>
-                    </fieldset>
-                  </form>
-
-                </div>
+                  </fieldset>
+                </form>
 
               </div>
 
-              :
+              <div className="col-sm-6">
 
-              <ul className="logs" id="logs" onScroll={this.scrollHandler}>
-                {
-                  this.message.map(function(obj){
-                    return (<li>{obj}</li>)
-                  })
-                }
-              </ul>
-            }
-            <h2>{ this.state.status}</h2>
-          </div>
+                <form>
+                  <fieldset className="">
+                    <legend>GitHub Repository Details</legend>
+
+                    <div>
+                      <label htmlFor="githubUser">GitHub Account</label>
+                      <input className="form-control" name="githubUser" type="text" value={this.getParams().user} disabled/>
+                    </div>
+                    <div>
+                      <label htmlFor="githubRepo">Repository</label>
+                      <input className="form-control" name="githubRepo" type="text" value={this.getParams().repo} disabled/>
+                    </div>
+
+                    <label htmlFor="tar">Select a branch:</label>
+                    <select className="form-control" name="branch" value={this.state.branch} onChange={this.handleChange.bind(this, 'branch') }required>
+                      {options}
+                    </select>
+                    <br/>
+                  </fieldset>
+                </form>
+
+              </div>
+
+              <div className="col-sm-12 text-center">
+                <button className="btn btn-lg btn-success create-button" name="create" onClick={this.sendto} >Create container and publish</button>
+              </div>
+
+            </div>
+
+            :
+
+            <div className="row">
+              <div className="col-sm-3">
+                <h2>{ this.state.status}</h2>
+              </div>
+              <div className="col-sm-9">
+                <ul className="logs" id="logs" onScroll={this.scrollHandler}>
+                  {
+                    this.message.map(function(obj){
+                      return (<li>{obj}</li>)
+                    })
+                  }
+                </ul>
+              </div>
+
+
+            </div>
+          }
+
         </div>
-        <RouteHandler />
+
+
       </div>
     );
   }

@@ -171,11 +171,10 @@ var Header = React.createClass({
 	render: function () {
 		return (
 			React.createElement("div", {className: "mainHeader"}, 
-				React.createElement("div", {className: "contentWrapper"}, 
+				React.createElement("div", {className: "container"}, 
 					React.createElement(Link, {to: "/"}, 
-            React.createElement("h1", null, "ContainerFactory.io")
+            React.createElement("span", {className: "header-title"}, "ContainerFactory.io")
           )
-
 				)
 			)
 		)
@@ -199,13 +198,14 @@ var Home = React.createClass({
     return (
 
       React.createElement("div", {className: "landing"}, 
+
         React.createElement("div", {className: "hero"}, 
 
-          React.createElement("div", {className: "contentWrapper"}, 
-            React.createElement("h1", null, "Container Factory"), 
+          React.createElement("div", {className: "container"}, 
+            React.createElement("h1", {className: "hidden-xs"}, "Container Factory"), 
             React.createElement("h2", null, "Turn your Github repo into a published container image"), 
 
-            React.createElement("div", {className: "row imageRow"}, 
+            React.createElement("div", {className: "row imageRow hidden-xs"}, 
               React.createElement("div", {className: "col-sm-offset-2 col-sm-3 text-center"}, 
                 React.createElement("i", {className: "githubLogo"}), 
                 React.createElement("h2", null, "source code ")
@@ -220,38 +220,37 @@ var Home = React.createClass({
                 React.createElement("h2", null, "docker image")
               )
             )
+          ), 
 
-          )
-        ), 
-
-
-        React.createElement("div", {className: "start-section text-center"}, 
-          React.createElement("a", {href: "/auth/github", className: "gitlogin"}, 
-            React.createElement("i", null), " Get started"
-          )
-        ), 
-
-
-        React.createElement("div", {className: "break"}, 
-
-          React.createElement("div", {className: "row contentWrapper text-center steps-padding"}, 
-            React.createElement("div", {className: "col-sm-4"}, 
-              React.createElement("h2", null, "1. Select a GitHub repository"), 
-              React.createElement("p", null, "Sign in with GitHub and select one of your public or private repositories.")
-            ), 
-
-            React.createElement("div", {className: "col-sm-4"}, 
-              React.createElement("h2", null, "2. Provide your registry credentials"), 
-              React.createElement("p", null, "Enter your credentials from your favorite container registry. You'll need your email address, your username and your password.")
-            ), 
-
-            React.createElement("div", {className: "col-sm-4"}, 
-              React.createElement("h2", null, "3. Collect your container!"), 
-              React.createElement("p", null, "In about a minute, your project will be available as a container in your container registry!")
+          React.createElement("div", {className: "text-center"}, 
+            React.createElement("a", {href: "/auth/github", className: "gitlogin"}, 
+              React.createElement("i", null), " Get started"
             )
           )
 
+        ), 
 
+        React.createElement("div", {className: "break-home text-center"}, 
+          React.createElement("div", {className: "container"}, 
+            React.createElement("div", {className: "row"}, 
+
+              React.createElement("div", {className: "col-sm-4"}, 
+                React.createElement("h2", null, "1. Select a GitHub repository"), 
+                React.createElement("p", null, "Sign in with GitHub and select one of your public or private repositories.")
+              ), 
+
+              React.createElement("div", {className: "col-sm-4"}, 
+                React.createElement("h2", null, "2. Provide your registry credentials"), 
+                React.createElement("p", null, "Enter your credentials from your favorite container registry. You'll need your email address, your username and your password.")
+              ), 
+
+              React.createElement("div", {className: "col-sm-4"}, 
+                React.createElement("h2", null, "3. Collect your container!"), 
+                React.createElement("p", null, "In about a minute, your project will be available as a container in your container registry!")
+              )
+
+            )
+          )
         )
 
       )
@@ -388,14 +387,21 @@ var Repo = React.createClass({
 
 		var nodes = repos.map(function (repos) {
 			var url = "/#/repo/" + repos.full_name+"/"+repos.branch+"/"+repos.private;
-			return (				
-				React.createElement("a", {href: url, className: "singleRepo"}, 
-          React.createElement("h5", {className: "repoName"}, repos.full_name, 
-            React.createElement("small", {className: "text-uppercase"}, repos.private ? " Private": " Public")
-          ), 
-          React.createElement("p", null, " ", repos.url)
-				)
+
+      return (
+				React.createElement("div", {className: "col-sm-6"}, 
+
+          React.createElement("a", {href: url, className: "singleRepo"}, 
+            React.createElement("h5", {className: "repoName"}, repos.full_name, 
+              React.createElement("small", {className: "text-uppercase"}, repos.private ? " Private": " Public")
+            ), 
+
+            React.createElement("p", null, "URL: ", repos.url)
+          )
+
+        )
 			);
+
 		});
 
 		return nodes;
@@ -406,38 +412,54 @@ var Repo = React.createClass({
 
 		return (
 			React.createElement("div", {className: "repo"}, 
+
 				React.createElement("div", {className: "hero"}, 
-          React.createElement("div", {className: "contentWrapper"}, 
-            React.createElement("h2", null, "Step 1: Select a repository")
-          )
+          React.createElement("h2", null, "Step 1: Select a repository")
 				), 
+
+        React.createElement("div", {className: "break"}, 
+          React.createElement("div", {className: "container"}, 
+            React.createElement("h5", {className: "break-header"}, "Load a public repository")
+          )
+        ), 
+
+        React.createElement("div", {className: "container"}, 
+
+          React.createElement("form", {className: "form-horizontal", onSubmit: this.goToGHRepo}, 
+
+            React.createElement("div", {className: "form-group"}, 
+              React.createElement("label", {className: "col-sm-2 control-label"}, "GitHub Repository URL"), 
+              React.createElement("div", {className: "col-sm-8"}, 
+                React.createElement("input", {className: "form-control", type: "text", onChange: this.changeGhUrl, placeholder: "https://github.com/lsqio/container-factory/tree/master"})
+              ), 
+              React.createElement("div", {className: "col-sm-2"}, 
+                React.createElement("input", {className: "form-control", type: "submit", value: "Next", disabled: (!this.state.repo || !this.state.user || !this.state.branch)})
+              )
+            )
+
+          )
+
+        ), 
+
 
 				React.createElement("div", {className: "break"}, 
-          React.createElement("div", {className: "contentWrapper"}, 
-            React.createElement("div", {className: "tableHeader"}, 
-              React.createElement("span", null, "Your GitHub Repositories")
-            )
+          React.createElement("div", {className: "container"}, 
+            React.createElement("h5", {className: "break-header"}, "Your GitHub Repositories – Click to select")
           )
 				), 
 
-				React.createElement("div", {className: "more"}, 
-          React.createElement("div", {className: "contentWrapper"}, 
-            React.createElement("div", {className: "listingRepos"}, 
-      			React.createElement("div", {className: "singleRepo"}, 
-      				React.createElement("form", {className: "form", onSubmit: this.goToGHRepo}, 
-		            	React.createElement("label", null, "Put in a public github url"), 
-		            	React.createElement("input", {className: "form-control", type: "text", onChange: this.changeGhUrl, placeholder: "https://github.com/lsqio/container-factory/tree/master"}), 
-		            	React.createElement("input", {className: "form-control", type: "submit", value: "Next", disabled: (!this.state.repo || !this.state.user || !this.state.branch)})
-             
-             		)
-             	), 
-             this.state.isLoading ?
-                React.createElement("h5", {className: "text-center steps-padding"}, "Loading...")
-                :
-                {listRepos}
-              
+				React.createElement("div", {className: "container"}, 
 
-            )
+
+          React.createElement("div", {className: "row"}, 
+
+            this.state.isLoading ?
+              React.createElement("h5", {className: "loading-text"}, "Loading your repos...")
+              :
+              {listRepos}
+            
+
+
           )
 				), 
 				React.createElement(RouteHandler, null)
@@ -584,7 +606,8 @@ var Single = React.createClass({
 
     var that = this
     var scrollElem = document.getElementById("logs")
-    var options = this.state.branches.map(function(branch){ return(React.createElement("option", {value: branch}, branch))} )
+
+    var options = this.state.branches.map(function(branch, index){ return(React.createElement("option", {value: branch, key: index}, branch))} )
 
     setTimeout(function(){
       if(that.followLogs && scrollElem)
@@ -599,81 +622,100 @@ var Single = React.createClass({
           )
         ), 
 
-        React.createElement("div", {className: "more"}, 
-          React.createElement("div", {className: "contentWrapper"}, 
+        React.createElement("div", {className: "container"}, 
 
-             this.state.status == "" ?
+           this.state.status == "" ?
 
-              React.createElement("div", {className: "row"}, 
-                React.createElement("div", {className: "col-sm-6"}, 
+            React.createElement("div", {className: "row"}, 
 
-                  React.createElement("form", {className: "form"}, 
+              React.createElement("div", {className: "col-sm-6"}, 
 
-                    React.createElement("fieldset", {className: ""}, 
-                      React.createElement("legend", null, "Registry Details"), 
+                React.createElement("form", {className: "form"}, 
+                  React.createElement("fieldset", null, 
+                    React.createElement("legend", null, "Container Registry Details"), 
+                    React.createElement("p", null, "Enter your container registry credentials. If you do not have an account with a container registry you will need to create one."), 
 
-                      React.createElement("div", null, 
-                        React.createElement("label", {for: "email"}, "Email "), 
-                        React.createElement("input", {className: "form-control", name: "email", type: "email", value: this.state.email, onChange: this.handleChange.bind(this, 'email'), placeholder: "ex: bob@bobbyland.com", required: true, autofocus: true})
-                      ), 
-                      React.createElement("div", null, 
-                        React.createElement("label", {for: "username"}, "Username:"), 
-                        React.createElement("input", {className: "form-control", name: "username", type: "text", value: this.state.username, onChange: this.handleChange.bind(this, 'username'), placeholder: "ex: bob", required: true, autofocus: true})
-                      ), 
-                      React.createElement("div", null, 
-                        React.createElement("label", {for: "password"}, "Password:"), 
-                        React.createElement("input", {className: "form-control", name: "password", type: "password", value: this.state.password, onChange: this.handleChange.bind(this, 'password'), placeholder: "6 digits, a combination of numbers and letters", required: true})
-                      ), 
-                      React.createElement("div", null, 
-                        React.createElement("label", {for: "serverAddress"}, "Server Address:"), 
-                        React.createElement("input", {className: "form-control", name: "serverAddress", type: "text", value: this.state.serverAddress, onChange: this.handleChange.bind(this, 'serverAddress'), placeholder: " ex: https://index.docker.io/v1/", required: true, autofocus: true})
-                      ), 
-                      React.createElement("div", null, 
-                        React.createElement("label", {for: "image"}, "Image:"), 
-                        React.createElement("input", {className: "form-control", name: "image", value: this.state.image, onChange: this.handleChange.bind(this, 'image'), type: "text", placeholder: "scope/name", required: true})
-                      ), 
-
-                      React.createElement("button", {className: "btn btn-lg btn-default", name: "create", onClick: this.sendto}, "Create")
-
+                    React.createElement("div", null, 
+                      React.createElement("label", {htmlFor: "email"}, "Email"), 
+                      React.createElement("input", {className: "form-control", name: "email", type: "email", value: this.state.email, onChange: this.handleChange.bind(this, 'email'), placeholder: "ex: email@example.com", required: true, autofocus: true})
+                    ), 
+                    React.createElement("div", null, 
+                      React.createElement("label", {htmlFor: "username"}, "Username"), 
+                      React.createElement("input", {className: "form-control", name: "username", type: "text", value: this.state.username, onChange: this.handleChange.bind(this, 'username'), placeholder: "ex: bob", required: true, autofocus: true})
+                    ), 
+                    React.createElement("div", null, 
+                      React.createElement("label", {htmlFor: "password"}, "Password"), 
+                      React.createElement("input", {className: "form-control", name: "password", type: "password", value: this.state.password, onChange: this.handleChange.bind(this, 'password'), placeholder: "6 digits, a combination of numbers and letters", required: true})
+                    ), 
+                    React.createElement("div", null, 
+                      React.createElement("label", {htmlFor: "image"}, "Container Image Name"), 
+                      React.createElement("input", {className: "form-control", name: "image", value: this.state.image, onChange: this.handleChange.bind(this, 'image'), type: "text", placeholder: "scope/name", required: true})
+                    ), 
+                    React.createElement("div", null, 
+                      React.createElement("label", {htmlFor: "serverAddress"}, "Registry Server Address"), 
+                      React.createElement("input", {className: "form-control", name: "serverAddress", type: "text", value: this.state.serverAddress, onChange: this.handleChange.bind(this, 'serverAddress'), placeholder: " ex: https://index.docker.io/v1/", required: true, autofocus: true})
                     )
+
+
                   )
-
-                ), 
-
-                React.createElement("div", {className: "col-sm-6"}, 
-
-                  React.createElement("form", null, 
-                    React.createElement("fieldset", {className: ""}, 
-                      React.createElement("legend", null, "GitHub Repository Details"), 
-                      React.createElement("p", null, "GitHub user: ", this.getParams().user), 
-                      React.createElement("p", null, "Repository: ", this.getParams().repo), 
-
-                      React.createElement("label", {for: "tar"}, "Select a branch:"), 
-                      React.createElement("select", {className: "form-control", name: "branch", value: this.state.branch, onChange: this.handleChange.bind(this, 'branch'), required: true}, 
-                        options
-                      ), 
-                      React.createElement("br", null)
-                    )
-                  )
-
                 )
 
+              ), 
+
+              React.createElement("div", {className: "col-sm-6"}, 
+
+                React.createElement("form", null, 
+                  React.createElement("fieldset", {className: ""}, 
+                    React.createElement("legend", null, "GitHub Repository Details"), 
+
+                    React.createElement("div", null, 
+                      React.createElement("label", {htmlFor: "githubUser"}, "GitHub Account"), 
+                      React.createElement("input", {className: "form-control", name: "githubUser", type: "text", value: this.getParams().user, disabled: true})
+                    ), 
+                    React.createElement("div", null, 
+                      React.createElement("label", {htmlFor: "githubRepo"}, "Repository"), 
+                      React.createElement("input", {className: "form-control", name: "githubRepo", type: "text", value: this.getParams().repo, disabled: true})
+                    ), 
+
+                    React.createElement("label", {htmlFor: "tar"}, "Select a branch:"), 
+                    React.createElement("select", {className: "form-control", name: "branch", value: this.state.branch, onChange: this.handleChange.bind(this, 'branch'), required: true}, 
+                      options
+                    ), 
+                    React.createElement("br", null)
+                  )
+                )
+
+              ), 
+
+              React.createElement("div", {className: "col-sm-12 text-center"}, 
+                React.createElement("button", {className: "btn btn-lg btn-success create-button", name: "create", onClick: this.sendto}, "Create container and publish")
               )
 
-              :
+            )
 
-              React.createElement("ul", {className: "logs", id: "logs", onScroll: this.scrollHandler}, 
-                
-                  this.message.map(function(obj){
-                    return (React.createElement("li", null, obj))
-                  })
-                
+            :
+
+            React.createElement("div", {className: "row"}, 
+              React.createElement("div", {className: "col-sm-3"}, 
+                React.createElement("h2", null,  this.state.status)
               ), 
-            
-            React.createElement("h2", null,  this.state.status)
-          )
-        ), 
-        React.createElement(RouteHandler, null)
+              React.createElement("div", {className: "col-sm-9"}, 
+                React.createElement("ul", {className: "logs", id: "logs", onScroll: this.scrollHandler}, 
+                  
+                    this.message.map(function(obj){
+                      return (React.createElement("li", null, obj))
+                    })
+                  
+                )
+              )
+
+
+            )
+          
+
+        )
+
+
       )
     );
   }

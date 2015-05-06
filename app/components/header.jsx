@@ -8,11 +8,10 @@ var Header = React.createClass({
 	render: function () {
 		return (
 			<div className="mainHeader">
-				<div className="contentWrapper">
+				<div className="container">
 					<Link to="/">
-            <h1>ContainerFactory.io</h1>
+            <span className="header-title">ContainerFactory.io</span>
           </Link>
-
 				</div>
 			</div>
 		)
