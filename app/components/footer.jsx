@@ -17,10 +17,16 @@ var Header = React.createClass({
                 <a href="https://lsq.io" target="_blank">LSQ.io</a>
               </span>
             </li>
-            <li>|</li>
+            <li className="hidden-xs">|</li>
             <li>
               <span>
-                <a href="https://github.com/lsqio" target="_blank">View the source code</a> on GitHub
+                <a href="https://github.com/lsqio/container-factory" target="_blank">View the source code</a> on GitHub
+              </span>
+            </li>
+            <li className="hidden-xs">|</li>
+            <li>
+              <span>
+                <a href="https://registry.hub.docker.com/repos/lsqio/" target="_blank">View the container</a> on Docker
               </span>
             </li>
           </ul>

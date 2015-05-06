@@ -143,10 +143,16 @@ var Header = React.createClass({
                 React.createElement("a", {href: "https://lsq.io", target: "_blank"}, "LSQ.io")
               )
             ), 
-            React.createElement("li", null, "|"), 
+            React.createElement("li", {className: "hidden-xs"}, "|"), 
             React.createElement("li", null, 
               React.createElement("span", null, 
-                React.createElement("a", {href: "https://github.com/lsqio", target: "_blank"}, "View the source code"), " on GitHub"
+                React.createElement("a", {href: "https://github.com/lsqio/container-factory", target: "_blank"}, "View the source code"), " on GitHub"
+              )
+            ), 
+            React.createElement("li", {className: "hidden-xs"}, "|"), 
+            React.createElement("li", null, 
+              React.createElement("span", null, 
+                React.createElement("a", {href: "https://registry.hub.docker.com/repos/lsqio/", target: "_blank"}, "View the container"), " on Docker"
               )
             )
           )
@@ -206,6 +212,7 @@ var Home = React.createClass({
             React.createElement("h2", null, "Turn your Github repo into a published container image"), 
 
             React.createElement("div", {className: "row imageRow hidden-xs"}, 
+
               React.createElement("div", {className: "col-sm-offset-2 col-sm-3 text-center"}, 
                 React.createElement("i", {className: "githubLogo"}), 
                 React.createElement("h2", null, "source code ")
@@ -219,6 +226,7 @@ var Home = React.createClass({
                 React.createElement("i", {className: "dockerLogo"}), 
                 React.createElement("h2", null, "docker image")
               )
+
             )
           ), 
 
@@ -236,7 +244,8 @@ var Home = React.createClass({
 
               React.createElement("div", {className: "col-sm-4"}, 
                 React.createElement("h2", null, "1. Select a GitHub repository"), 
-                React.createElement("p", null, "Sign in with GitHub and select one of your public or private repositories.")
+                React.createElement("p", null, "If your repo contains a NodeJS project we will add a pre-built docker file for you. If your repository does not contain a NodeJS project you will need to add a docker file to your repo (for examples of docker files see https://github.com/dockerfile). We plan on adding more languages to the automated build process, and you can help by contributing to  ", 
+                  React.createElement("a", {className: "instruction-link", href: "https://github.com/lsqio/container-factory"}, "Container Factory"), ".")
               ), 
 
               React.createElement("div", {className: "col-sm-4"}, 

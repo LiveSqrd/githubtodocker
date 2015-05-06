@@ -19,6 +19,7 @@ var Home = React.createClass({
             <h2>Turn your Github repo into a published container image</h2>
 
             <div className="row imageRow hidden-xs">
+
               <div className="col-sm-offset-2 col-sm-3 text-center">
                 <i className='githubLogo'></i>
                 <h2>source code </h2>
@@ -32,6 +33,7 @@ var Home = React.createClass({
                 <i className='dockerLogo'></i>
                 <h2>docker image</h2>
               </div>
+
             </div>
           </div>
 
@@ -49,7 +51,8 @@ var Home = React.createClass({
 
               <div className="col-sm-4">
                 <h2>1. Select a GitHub repository</h2>
-                <p>Sign in with GitHub and select one of your public or private repositories.</p>
+                <p>If your repo contains a NodeJS project we will add a pre-built docker file for you. If your repository does not contain a NodeJS project you will need to add a docker file to your repo (for examples of docker files see https://github.com/dockerfile). We plan on adding more languages to the automated build process, and you can help by contributing to &nbsp;
+                  <a className="instruction-link" href="https://github.com/lsqio/container-factory">Container Factory</a>.</p>
               </div>
 
               <div className="col-sm-4">
