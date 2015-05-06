@@ -64,7 +64,7 @@ api.get('/repos',function(req,res){
 		var arr =[];
 		var listRepos = function (){
 			github.repos.getAll({"per_page":100}, function(err, resp) {
-				arr = _.union(arr,(resp|| []).map(function(repo){return {url:repo.html_url,full_name:repo.full_name,private:repo.private}}))
+				arr = _.union(arr,(resp|| []).map(function(repo){return {url:repo.html_url,branch:repo.default_branch,full_name:repo.full_name,private:repo.private}}))
 
 				res.send({err:err, result:arr})
 			});
@@ -78,7 +78,7 @@ api.get('/repos',function(req,res){
 					github.orgs.getTeamRepos({id:_.findWhere(t,{"permission": "admin"}).id,"per_page":100}, function(err, repos) {
 						counter++;
 
-						arr = _.union(arr,(repos|| []).map(function(repo){return {url:repo.html_url,full_name:repo.full_name,private:repo.private}}))
+						arr = _.union(arr,(repos|| []).map(function(repo){return {url:repo.html_url,branch:repo.default_branch,full_name:repo.full_name,private:repo.private}}))
 						if(counter ==  orgs.length)
 							listRepos();
 					});
@@ -101,7 +101,6 @@ api.post('/build',function(req,res){
 		, image = req.body.image
 		, config = {}
 		, writer
-	console.log(req.body)
 	config[serverAddress] = {
 		email: email,
 		username: username,
@@ -124,7 +123,7 @@ api.post('/build',function(req,res){
 		pack.finalize()
 	})
 
-	var service = "factory-cc08ef42-1.lsqio.cont.tutum.io:49192"
+	var service = "container-factory.onlsq.io"
 	hyperdirect(tar)
 		.pipe(zlib.createGunzip())
 		.pipe(extract)

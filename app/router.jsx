@@ -20,8 +20,7 @@ var routes = (
 		<DefaultRoute name="app" handler={Home} />
 
 		<Route name="repo" path="repo" handler={Repo} />
-    <Route name="single" path="repo/:user/:repo/:private" handler={Single} />
-		<Route name="singles" path="repo/:user/:repo" handler={Single} />
+		<Route name="single" path="repo/:user/:repo/:branch/:private" handler={Single} />
 		<Route name="about" path="about" handler={About} />
 		<Route name="pricing" path="pricing" handler={Pricing} />
 

@@ -2,7 +2,8 @@
 img,legend{border:0}
 legend,td,th{padding:0}
 a,button,input{background:0 0}
-.hero h1,.hero h2,.list,.mainFooter .footer-text{text-align:center}
+a,a:focus,a:hover{padding-bottom:3px}
+h1,h2{font-family:'Francois One',sans-serif}
 html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
 body{margin:0}
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
@@ -43,12 +44,11 @@ h3{font-size:40px;line-height:45px}
 h4{font-size:34.67px;line-height:40px;font-weight:300;color:#354750}
 h5{font-size:32px;line-height:38px;font-weight:100}
 .h6{font-size:24px;line-height:30px;font-weight:300;color:#020202}
-.h7,.h8{font-size:21.33px;line-height:26px;color:#354750}
+.h7,.h8{color:#354750;line-height:26px;font-size:21.33px}
 .h7{font-weight:500}
 .h8{font-weight:400}
 .h10{font-size:16px;line-height:21px;color:#758a95}
-a,a:focus,a:hover{color:#fff;padding-bottom:3px}
-h1,h2{color:#203139;font-family:'Francois One',sans-serif}
+h1,h2{color:#203139}
 @font-face{font-family:hay-icon;src:url(../font/20150304hayicons.eot?1);src:url(../font/20150304hayicons.eot?1#iefix)format('embedded-opentype'),url(../font/20150304hayicons.woff?1)format('woff'),url(../font/20150304hayicons.ttf?1)format('truetype'),url(../font/20150304hayicons.svg?1#hay-icon)format('svg');font-weight:400;font-style:normal}
 [class*=" hay-"]:before,[class^=hay-]:before{font-family:hay-icon;font-style:normal;font-weight:400;speak:none;display:inline-block;text-decoration:inherit;width:1em;margin-right:.2em;text-align:center;font-variant:normal;text-transform:none;line-height:1em;margin-left:.2em;font-size:140%}
 .gitlogin,.gitlogin:hover,.repo .listingRepos .singleRepo,a,a:focus,a:hover{text-decoration:none}
@@ -110,6 +110,7 @@ h1,h2{color:#203139;font-family:'Francois One',sans-serif}
 .hay-burger-animate{margin:10px;display:inline-block;width:36px;height:20px}
 .hay-burger-animate span,.hay-burger-animate span:after,.hay-burger-animate span:before{display:block;width:20px;height:4px;background:#898fa0;transition:all .2s;backface-visibility:hidden}
 .gitlogin,.gitlogin i,.gitlogin span{transition:all ease .1s}
+.arrowImage,.dockerLogo,.githubLogo{display:inline-block}
 .hay-burger-animate span{position:relative;margin:8px 0 0}
 .hay-burger-animate span:after,.hay-burger-animate span:before{position:absolute;content:""}
 .hay-burger-animate span:before{top:-8px}
@@ -131,15 +132,14 @@ h1,h2{color:#203139;font-family:'Francois One',sans-serif}
 50%{height:50px}
 }
 body{background-color:#FCFCFC;padding-bottom:60px}
-a{border-bottom:dashed 1px #fff}
-a:focus,a:hover{border-bottom:solid 2px #fff}
+a{color:#fff;border-bottom:dashed 1px #fff}
+a:focus,a:hover{color:#fff;border-bottom:solid 2px #fff}
 h1{font-size:80px;line-height:85px}
 h2{font-size:27px;line-height:32px}
 .imageRow{height:150px;padding-top:30px;margin-bottom:50px}
-.dockerLogo,.githubLogo{display:inline-block;height:75px}
-.githubLogo{background:url(/img/gh.png)center center no-repeat;-webkit-background-size:contain;-moz-background-size:contain;-o-background-size:contain;background-size:contain;width:75px}
-.dockerLogo{background:url(/img/docker.png)center center no-repeat;-webkit-background-size:contain;-moz-background-size:contain;-o-background-size:contain;background-size:contain;width:100px}
-.arrowImage{background:url(/img/arrow-40166_1280.png)center center no-repeat;-webkit-background-size:contain;-moz-background-size:contain;-o-background-size:contain;background-size:contain;display:inline-block;height:100px;width:40px}
+.githubLogo{background:url(/img/gh.png)center center no-repeat;-webkit-background-size:contain;-moz-background-size:contain;-o-background-size:contain;background-size:contain;height:75px;width:75px}
+.dockerLogo{background:url(/img/docker.png)center center no-repeat;-webkit-background-size:contain;-moz-background-size:contain;-o-background-size:contain;background-size:contain;height:75px;width:100px}
+.arrowImage{background:url(/img/arrow-40166_1280.png)center center no-repeat;-webkit-background-size:contain;-moz-background-size:contain;-o-background-size:contain;background-size:contain;height:100px;width:40px}
 .mainHeader{position:relative;margin-bottom:-100px}
 .mainHeader h1{font-size:24px}
 form{margin-top:20px}
@@ -152,8 +152,9 @@ form{margin-top:20px}
 .gitlogin i{background:url(/img/gh.png)center center no-repeat;-webkit-background-size:contain;-moz-background-size:contain;-o-background-size:contain;background-size:contain;display:inline-block;height:35px;width:40px;position:absolute;top:8px;left:10px}
 .gitlogin span{line-height:51px;font-size:16px;padding-left:36px}
 .hero{padding-top:60px;background:#00BCE8;background:-moz-linear-gradient(top,#00bce8 0,#00e2ff 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0,#00bce8),color-stop(100%,#00e2ff));background:-webkit-linear-gradient(top,#00bce8 0,#00e2ff 100%);background:-o-linear-gradient(top,#00bce8 0,#00e2ff 100%);background:-ms-linear-gradient(top,#00bce8 0,#00e2ff 100%);background:linear-gradient(to bottom,#00bce8 0,#00e2ff 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BCE8', endColorstr='#00e2ff', GradientType=0);min-height:400px}
-.hero h1{margin-top:50px}
-.hero h2{line-height:2em}
+.hero h1{margin-top:50px;text-align:center}
+.hero h2{line-height:2em;text-align:center}
+.list{text-align:center}
 .list>span{width:31%;margin:2.3% .8% .8%;display:inline-block;vertical-align:top}
 .mainFooter,body,html{width:100%}
 .list>span h3{font-size:23px}
@@ -162,7 +163,7 @@ form{margin-top:20px}
 .steps-padding{padding:34px 0}
 .mainFooter{position:fixed;bottom:0;height:60px;padding-top:20px;background-color:#089E00}
 .MainAppWrap,body{height:100%}
-.mainFooter .footer-text{color:#F1FFF3;font-size:16px}
+.mainFooter .footer-text{color:#F1FFF3;font-size:16px;text-align:center}
 .repo{background-color:#FCFCFC}
 .repo .hero{min-height:200px;padding-top:70px;background-color:#00e2ff}
 .repo .hero h2{margin-top:50px;font-size:25px}
@@ -916,13 +917,13 @@ MIT License: https://github.com/driftyco/ionicons
 .ion-wrench:before{content:"\f2ba"}
 .ion-xbox:before{content:"\f30c"}
 .textPage,.user{min-width:200px;width:50%;max-width:600px;margin:0 auto;position:relative;top:20%}
-.textPage .branding h4,.textPage .branding>a,.user .branding h4,.user .branding>a{text-align:center;font-size:16px;line-height:23px;margin-top:15px}
 .textPage .branding,.user .branding{margin-bottom:25px}
 .textPage .branding .main_brand,.user .branding .main_brand{height:60px;margin-bottom:12px}
 .textPage .branding h2,.user .branding h2{text-align:center;font-size:16px;line-height:23px}
+.textPage .branding h4,.user .branding h4{text-align:center;font-size:16px;line-height:23px;margin-top:15px}
 .textPage .branding * a,.textPage .branding a,.user .branding * a,.user .branding a{color:#00e2ff;text-decoration:none;font-weight:400}
 .textPage .branding * a:hover,.textPage .branding a:hover,.user .branding * a:hover,.user .branding a:hover{text-decoration:underline}
-.textPage .branding>a,.user .branding>a{width:100%;display:block}
+.textPage .branding>a,.user .branding>a{text-align:center;font-size:16px;line-height:23px;margin-top:15px;width:100%;display:block}
 .textPage .formWrap .form,.user .formWrap .form{width:100%;margin:0 auto}
 .textPage .formWrap .form .wrap,.user .formWrap .form .wrap{margin-bottom:10px}
 .textPage .formWrap .form .submitWrap,.user .formWrap .form .submitWrap{border:none;margin-top:10px}

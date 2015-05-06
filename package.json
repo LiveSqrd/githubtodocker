@@ -15,6 +15,7 @@
     "express-handlebars": "*",
     "express-session": "^1.11.1",
     "github": "^0.2.4",
+    "github-url-to-object": "^1.5.2",
     "gulp": "^3.4.0",
     "http-browserify": "^1.7.0",
     "hyperdirect": "0.0.0",

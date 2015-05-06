@@ -27,7 +27,10 @@ var Single = React.createClass({
       ,message:""
       ,status:""
       ,branches:[]
-      ,branch:"master"
+      ,branch:this.getParams().branch || "master"
+      ,private: this.getParams().private == "true"
+      ,user:this.getParams().user
+      ,repo:this.getParams().repo
     };
   },
   componentDidMount: function () {
@@ -44,11 +47,11 @@ var Single = React.createClass({
   },
   getTar:function(branch){
     var that = this
-    if(this.getParams().private != "true")
-      return this.setState({tar:"https://github.com/"+this.getParams().user+"/"+this.getParams().repo+"/archive/"+(branch || this.state.branch)+".tar.gz"})
+    if(!this.state.private)
+      return this.setState({tar:"https://github.com/"+this.state.user+"/"+this.state.repo+"/archive/"+(branch || this.state.branch)+".tar.gz"})
 
     request
-      .get("/api/v1/tar/"+this.getParams().user+"/"+this.getParams().repo+"/"+(branch || this.state.branch))
+      .get("/api/v1/tar/"+this.state.user+"/"+this.state.repo+"/"+(branch || this.state.branch))
       .end(function (error, res) {
         if(!error)
           that.setState({ tar: res.body.result})
