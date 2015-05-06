@@ -187,17 +187,21 @@ var Single = React.createClass({
                 </div>
 
                 <div className="col-sm-6">
-                  <fieldset className="">
-                    <legend>GitHub Repository Details</legend>
-                    <p>GitHub user: {this.getParams().user}</p>
-                    <p>Repository: {this.getParams().repo}</p>
 
-                    <label for="tar">Select a branch:</label>
-                    <select className="form-control" name="branch" value={this.state.branch} onChange={this.handleChange.bind(this, 'branch') }required>
-                      {options}
-                    </select>
-                    <br/>
-                  </fieldset>
+                  <form>
+                    <fieldset className="">
+                      <legend>GitHub Repository Details</legend>
+                      <p>GitHub user: {this.getParams().user}</p>
+                      <p>Repository: {this.getParams().repo}</p>
+
+                      <label for="tar">Select a branch:</label>
+                      <select className="form-control" name="branch" value={this.state.branch} onChange={this.handleChange.bind(this, 'branch') }required>
+                        {options}
+                      </select>
+                      <br/>
+                    </fieldset>
+                  </form>
+
                 </div>
 
               </div>

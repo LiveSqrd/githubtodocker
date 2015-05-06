@@ -13,8 +13,8 @@ var Header = React.createClass({
           <ul className="list-inline footer-text">
             <li>
               <span>Built at Disrupt NY Hackathon 2015 by &nbsp;
-                <a href="https://lsqio.io" target="_blank">Haystack.im</a> &amp; &nbsp;
-                <a href="https://haystack.im" target="_blank">LSQ.io</a>
+                <a href="https://haystack.im" target="_blank">Haystack.im</a> &amp; &nbsp;
+                <a href="https://lsq.io" target="_blank">LSQ.io</a>
               </span>
             </li>
             <li>|</li>

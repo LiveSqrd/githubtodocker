@@ -140,8 +140,8 @@ var Header = React.createClass({
           React.createElement("ul", {className: "list-inline footer-text"}, 
             React.createElement("li", null, 
               React.createElement("span", null, "Built at Disrupt NY Hackathon 2015 by  ", 
-                React.createElement("a", {href: "https://lsqio.io", target: "_blank"}, "Haystack.im"), " &  ", 
-                React.createElement("a", {href: "https://haystack.im", target: "_blank"}, "LSQ.io")
+                React.createElement("a", {href: "https://haystack.im", target: "_blank"}, "Haystack.im"), " &  ", 
+                React.createElement("a", {href: "https://lsq.io", target: "_blank"}, "LSQ.io")
               )
             ), 
             React.createElement("li", null, "|"), 
@@ -615,17 +615,21 @@ var Single = React.createClass({
                 ), 
 
                 React.createElement("div", {className: "col-sm-6"}, 
-                  React.createElement("fieldset", {className: ""}, 
-                    React.createElement("legend", null, "GitHub Repository Details"), 
-                    React.createElement("p", null, "GitHub user: ", this.getParams().user), 
-                    React.createElement("p", null, "Repository: ", this.getParams().repo), 
 
-                    React.createElement("label", {for: "tar"}, "Select a branch:"), 
-                    React.createElement("select", {className: "form-control", name: "branch", value: this.state.branch, onChange: this.handleChange.bind(this, 'branch'), required: true}, 
-                      options
-                    ), 
-                    React.createElement("br", null)
+                  React.createElement("form", null, 
+                    React.createElement("fieldset", {className: ""}, 
+                      React.createElement("legend", null, "GitHub Repository Details"), 
+                      React.createElement("p", null, "GitHub user: ", this.getParams().user), 
+                      React.createElement("p", null, "Repository: ", this.getParams().repo), 
+
+                      React.createElement("label", {for: "tar"}, "Select a branch:"), 
+                      React.createElement("select", {className: "form-control", name: "branch", value: this.state.branch, onChange: this.handleChange.bind(this, 'branch'), required: true}, 
+                        options
+                      ), 
+                      React.createElement("br", null)
+                    )
                   )
+
                 )
 
               )
