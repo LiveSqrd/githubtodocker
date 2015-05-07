@@ -66,7 +66,7 @@ var Single = React.createClass({
   },
   sendto:function (e) {
     e.preventDefault()
-
+    ga('send', 'event', 'button', 'click', 'build')
     var that = this;
     var opts = {
       path:'/api/v1/build'
@@ -77,9 +77,9 @@ var Single = React.createClass({
     this.setState({status:"Building"})
     opts.port = window.location.port
     opts.host = window.location.host
-
+    var startTime = Date.now()
     var result = ""
-    var status;
+    var status
     var req = http.request(opts, function(res) {
       var info = "";
       res.on('data', function (chunk) {
@@ -111,20 +111,20 @@ var Single = React.createClass({
       })
       res.on("end",function(){
         that.setState({status:"Done"})
+        ga('send', 'event', 'build', 'done', this.state.tar)
+        ga('send', 'timing', 'build', 'complete', Date.now()-startTime, this.state.tar);
       })
     })
     req.on('error', function(e) {
       console.log("error",e)
+      ga('send', 'event', 'build', 'error', this.state.tar)
     })
     req.end(JSON.stringify(that.state))
   },
   scrollHandler:function(e){
 
     var elem = document.getElementById("logs")
-    //var scrollTop = elem.scrollTop
-    //var scrollHeight = elem.scrollHeight
-    //var height = elem.clientHeight
-    var wheelDelta = elem.scrollTop + elem.clientHeight + 20
+    var wheelDelta = elem.scrollTop + elem.clientHeight + 220
     var isDeltaPositive =  wheelDelta >= elem.scrollHeight
     this.followLogs = isDeltaPositive
   },
@@ -205,13 +205,6 @@ var Single = React.createClass({
                       {options}
                     </select>
                     <br/>
-                  </fieldset>
-                </div>
-
-                <div className="col-sm-12 text-center">
-
-                  <div className="create-button">
-
                     <div className="well-sm">
                       <p>
                         <strong>Note: </strong>
@@ -219,7 +212,12 @@ var Single = React.createClass({
                         <a className="instruction-link" href="https://github.com/dockerfile" target="_blank">docker file examples</a>&nbsp;). We plan on adding more languages to the automated build process, and you can help by contributing to &nbsp;
                         <a className="instruction-link" href="https://github.com/lsqio/container-factory" target="_blank">Container Factory</a>.</p>
                     </div>
+                  </fieldset>
+                </div>
 
+                <div className="col-sm-12 text-center">
+
+                  <div className="create-button">
                     <button className="btn btn-lg btn-success" name="create" type="submit" >Create container and publish</button>
                   </div>
 

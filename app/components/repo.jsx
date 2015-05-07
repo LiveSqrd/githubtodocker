@@ -52,6 +52,7 @@ var Repo = React.createClass({
 	  },
 	goToGHRepo:function(){
 		   event.preventDefault()
+		   ga('send', 'event', 'button', 'click', 'usepublicGH')
 		if(this.state.repo && this.state.user && this.state.branch)
 			this.transitionTo("single",{repo: this.state.repo, user: this.state.user, branch: this.state.branch,private:"false"})
 	},

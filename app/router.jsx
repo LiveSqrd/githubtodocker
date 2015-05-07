@@ -13,6 +13,9 @@ var Route = Router.Route
 var DefaultRoute = Router.DefaultRoute
 var NotFoundRoute = Router.NotFoundRoute
 
+ga('create', 'UA-62553627-1', 'auto')
+
+
 var routes = (
 	<Route handler={App} path="/">
 		<DefaultRoute name="app" handler={Home} />
@@ -25,6 +28,7 @@ var routes = (
 )
 
 
-Router.run(routes, function (Handler) {
+Router.run(routes, function (Handler,state) {
 	React.render(<Handler />, document.getElementById("www"))
+	ga('send', 'pageview',state.path)
 })
